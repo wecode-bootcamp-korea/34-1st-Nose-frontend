@@ -7,6 +7,7 @@ import Signup from './pages/Signup/Signup';
 import Detail from './pages/Detail/Detail';
 import Shop from './pages/Shop/Shop';
 import Survey from './pages/Survey/Survey';
+import Qna from './pages/Qna/Qna';
 import Nav from './component/Nav/Nav';
 import Footer from './component/Footer/Footer';
 
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/Detail" element={<Detail />} />
         <Route path="/Shop" element={<Shop />} />
         <Route path="/Survey" element={<Survey />} />
+        <Route path="/Qna" element={<Qna />} />
       </Routes>
       <Footer />
     </BrowserRouter>
