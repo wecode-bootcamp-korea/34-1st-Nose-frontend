@@ -33,14 +33,14 @@ const Nav = () => {
           </Link>
         </ul>
         <ul className="navText">
-          <a href="#" className={scrollPosition < 5 ? '' : 'changeAtagText'}>
+          <div className={scrollPosition < 5 ? '' : 'changeAtagText'}>
             ABOUT
-          </a>
+          </div>
         </ul>
         <ul className="navText">
-          <a href="#" className={scrollPosition < 5 ? '' : 'changeAtagText'}>
+          <div className={scrollPosition < 5 ? '' : 'changeAtagText'}>
             EVENT
-          </a>
+          </div>
         </ul>
       </div>
       <div className="paffem">

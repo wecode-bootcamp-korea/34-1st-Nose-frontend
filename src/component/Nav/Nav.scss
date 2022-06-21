@@ -9,34 +9,43 @@
   display: flex;
   justify-content: space-around;
 
-  a {
-    text-decoration: none;
-    color: black;
-  }
-  .changeAtagText {
-    color: white;
-  }
-
   &.changeNav {
     background-color: black;
-  }
-
-  .navCategory {
-    display: flex;
-  }
-
-  .navText {
-    font-size: 16px;
-    padding: 0 23px;
-    margin-top: 20px;
   }
 
   .paffem {
     font-size: 40px;
     text-align: center;
     margin-right: 300px;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .changeAtagText {
+      color: white;
+    }
   }
 
+  .navCategory {
+    display: flex;
+
+    .navText {
+      font-size: 16px;
+      padding: 0 23px;
+      margin-top: 20px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .changeAtagText {
+        color: white;
+      }
+    }
+  }
   .navUserIcon {
     img {
       width: 25px;
