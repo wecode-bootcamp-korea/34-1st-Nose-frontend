@@ -1,0 +1,67 @@
+.footerContainer {
+  background-color: black;
+  color: white;
+
+  .contentBox {
+    margin: 0 168px;
+    padding: 72px 32px 24px 32px;
+  }
+
+  .sectionsMargin {
+    padding-bottom: 30px;
+    border-bottom: solid 1px gray;
+  }
+  .sections {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 100px;
+
+    .section {
+      width: 280px;
+
+      ul {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .informationContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .mention {
+      margin: 28px 0;
+    }
+
+    .footerPaffem {
+      font-size: 50px;
+      margin-top: 30px;
+      opacity: 0.3;
+    }
+
+    .information {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .text {
+        font-size: 12px;
+        opacity: 0.5;
+        margin-top: 12px;
+      }
+    }
+    .imgBox {
+      display: flex;
+      justify-content: space-between;
+      width: 90px;
+      margin-top: 50px;
+
+      img {
+        width: 20px;
+        height: 20px;
+        filter: invert(100%);
+      }
+    }
+  }
+}
