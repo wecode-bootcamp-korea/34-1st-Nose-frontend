@@ -14,63 +14,60 @@ const Nav = () => {
   });
 
   return (
-    <>
-      <nav className={`nav${scrollPosition < 5 ? '' : ' changeNav'}`}>
-        <div className="navCategory">
-          <ul className="navText">
-            <Link
-              to="/Survey"
-              className={scrollPosition < 5 ? '' : 'changeAtagText'}
-            >
-              Perfume Teller
-            </Link>
-          </ul>
-          <ul className="navText">
-            <Link
-              to="/Shop"
-              className={scrollPosition < 5 ? '' : 'changeAtagText'}
-            >
-              SHOP
-            </Link>
-          </ul>
-          <ul className="navText">
-            <a href="#" className={scrollPosition < 5 ? '' : 'changeAtagText'}>
-              ABOUT
-            </a>
-          </ul>
-          <ul className="navText">
-            <a href="#" className={scrollPosition < 5 ? '' : 'changeAtagText'}>
-              EVENT
-            </a>
-          </ul>
-        </div>
-        <div className="paffem">
-          <Link to="/" className={scrollPosition < 5 ? '' : 'changeAtagText'}>
-            PAFFEM
+    <nav className={`nav${scrollPosition < 5 ? '' : ' changeNav'}`}>
+      <div className="navCategory">
+        <ul className="navText">
+          <Link
+            to="/Survey"
+            className={scrollPosition < 5 ? '' : 'changeAtagText'}
+          >
+            Perfume Teller
           </Link>
-        </div>
-        <div className="navUserIcon">
+        </ul>
+        <ul className="navText">
+          <Link
+            to="/Shop"
+            className={scrollPosition < 5 ? '' : 'changeAtagText'}
+          >
+            SHOP
+          </Link>
+        </ul>
+        <ul className="navText">
+          <a href="#" className={scrollPosition < 5 ? '' : 'changeAtagText'}>
+            ABOUT
+          </a>
+        </ul>
+        <ul className="navText">
+          <a href="#" className={scrollPosition < 5 ? '' : 'changeAtagText'}>
+            EVENT
+          </a>
+        </ul>
+      </div>
+      <div className="paffem">
+        <Link to="/" className={scrollPosition < 5 ? '' : 'changeAtagText'}>
+          PAFFEM
+        </Link>
+      </div>
+      <div className="navUserIcon">
+        <img
+          className={scrollPosition < 5 ? '' : 'changeImg'}
+          alt="user-icon"
+          src="/images/nav/nav-user.png"
+        />
+        <img
+          className={scrollPosition < 5 ? '' : 'changeImg'}
+          alt="logout-icon"
+          src="/images/nav/nav-logout.png"
+        />
+        <Link to="/Cart">
           <img
             className={scrollPosition < 5 ? '' : 'changeImg'}
-            alt="user-icon"
-            src="/images/nav/nav-user.png"
+            alt="cart-icon"
+            src="/images/nav/nav-cart.png"
           />
-          <img
-            className={scrollPosition < 5 ? '' : 'changeImg'}
-            alt="logout-icon"
-            src="/images/nav/nav-logout.png"
-          />
-          <Link to="/Cart">
-            <img
-              className={scrollPosition < 5 ? '' : 'changeImg'}
-              alt="cart-icon"
-              src="/images/nav/nav-cart.png"
-            />
-          </Link>
-        </div>
-      </nav>
-      <div className="bigBox" />
-    </>
+        </Link>
+      </div>
+    </nav>
   );
 };
 
