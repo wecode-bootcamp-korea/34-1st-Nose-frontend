@@ -1,0 +1,54 @@
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+  transition: all 0.5s;
+  padding: 40px 65px 15px 65px;
+  display: flex;
+  justify-content: space-around;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .changeAtagText {
+    color: white;
+  }
+
+  &.changeNav {
+    background-color: black;
+  }
+
+  .navCategory {
+    display: flex;
+  }
+
+  .navText {
+    font-size: 16px;
+    padding: 0 23px;
+    margin-top: 20px;
+  }
+
+  .paffem {
+    font-size: 40px;
+    text-align: center;
+    margin-right: 300px;
+  }
+
+  .navUserIcon {
+    img {
+      width: 25px;
+      height: 25px;
+      margin: 20px 20px 0 0;
+      border-radius: 50%;
+    }
+    .changeImg {
+      filter: invert(100%);
+    }
+  }
+}
+.bigBox {
+  height: 2000px;
+}
