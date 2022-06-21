@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "itemName": "구름빛 향기",
+    "price": 20000,
+    "imageUrl": "//paffem.me/web/product/tiny/202012/c6dea5a4cf8b362090acbdd2af2873fe.jpg",
+    "quantity": 2,
+    "checked": false
+  },
+  {
+    "id": 2,
+    "itemName": "장미빛 구름",
+    "price": 22000,
+    "imageUrl": "//paffem.me/web/product/tiny/202111/96000cd36cef4c7a4949a4b25da95dac.png",
+    "quantity": 8,
+    "checked": false
+  }
+]
