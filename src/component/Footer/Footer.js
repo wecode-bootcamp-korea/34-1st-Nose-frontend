@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.scss';
 
 const Footer = () => {
@@ -38,9 +39,11 @@ const Footer = () => {
         </div>
         <div className="informationContainer">
           <div className="imgBox">
-            <img src="images/footer/instagram.png" alt="instagramLogo" />
-            <img src="images/footer/facebook.png" alt="facebookLogo" />
-            <img src="images/footer/brunch.png" alt="brunchLogo" />
+            <a href="https://www.instagram.com/wecode_bootcamp/?hl=ko">
+              <img src="/images/footer/instagram.png" alt="instagramLogo" />
+            </a>
+            <img src="/images/footer/facebook.png" alt="facebookLogo" />
+            <img src="/images/footer/brunch.png" alt="brunchLogo" />
           </div>
           <div className="mention">
             <strong>Find Your Signature, PAFFEM</strong>
