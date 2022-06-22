@@ -17,24 +17,24 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const checkAccount = () =>
-    !isAccountValid
-      ? setAccountWarning('영문소문자 또는 숫자 4~16자로 입력해 주세요.')
-      : setAccountWarning('');
+    isAccountValid
+      ? setAccountWarning('')
+      : setAccountWarning('영문소문자 또는 숫자 4~16자로 입력해 주세요.');
 
   const checkEmail = () =>
-    !isEmailValid
-      ? setEmailWarning('@와 .을 포함 시켜주세요.')
-      : setEmailWarning('');
+    isEmailValid
+      ? setEmailWarning('')
+      : setEmailWarning('@와 .을 포함 시켜주세요.');
 
   const checkPhoneNumber = () =>
-    !isPhoneNumberValid
-      ? setPhoneNumberWarning("'-'를 제외한 숫자만 입력해주세요.")
-      : setPhoneNumberWarning('');
+    isPhoneNumberValid
+      ? setPhoneNumberWarning('')
+      : setPhoneNumberWarning("'-'를 제외한 숫자만 입력해주세요.");
 
   const checkPassword = () =>
-    !isPasswordValid
-      ? setPasswordWarning('비밀번호는 4~16자리로 이뤄져야 합니다.')
-      : setPasswordWarning('');
+    isPasswordValid
+      ? setPasswordWarning('')
+      : setPasswordWarning('비밀번호는 4~16자리로 이뤄져야 합니다.');
 
   // destructuring
   const { name, account, email, phone_number, password } = userInfo;
