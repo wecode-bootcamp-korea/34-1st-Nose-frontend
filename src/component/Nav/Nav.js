@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Modal from './component/Modal';
 import './Nav.scss';
 
 const Nav = () => {
@@ -13,6 +14,14 @@ const Nav = () => {
     window.addEventListener('scroll', updateScroll);
   });
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <nav className={`nav${scrollPosition < 5 ? '' : ' changeNav'}`}>
       <div className="navCategory">
@@ -24,13 +33,19 @@ const Nav = () => {
             Perfume Teller
           </Link>
         </ul>
-        <ul className="navText">
-          <Link
-            to="/Shop"
+        <ul className="navText shop">
+          <div
             className={scrollPosition < 5 ? '' : 'changeAtagText'}
+            onMouseOver={openModal}
           >
             SHOP
-          </Link>
+          </div>
+          <Modal
+            open={modalOpen}
+            close={() => {
+              closeModal();
+            }}
+          />
         </ul>
         <ul className="navText">
           <div className={scrollPosition < 5 ? '' : 'changeAtagText'}>
@@ -49,11 +64,13 @@ const Nav = () => {
         </Link>
       </div>
       <div className="navUserIcon">
-        <img
-          className={scrollPosition < 5 ? '' : 'changeImg'}
-          alt="user-icon"
-          src="/images/nav/nav-user.png"
-        />
+        <Link to="/Login">
+          <img
+            className={scrollPosition < 5 ? '' : 'changeImg'}
+            alt="user-icon"
+            src="/images/nav/nav-user.png"
+          />
+        </Link>
         <img
           className={scrollPosition < 5 ? '' : 'changeImg'}
           alt="logout-icon"

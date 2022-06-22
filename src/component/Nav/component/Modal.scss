@@ -1,0 +1,33 @@
+.modal {
+  position: fixed;
+  top: 108px;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+
+  .modalContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .modalTextContainer {
+      margin-left: 230px;
+      margin-top: 50px;
+      margin-bottom: 80px;
+
+      .modalText {
+        margin-top: 30px;
+      }
+    }
+
+    .imgBox {
+      margin-right: 50px;
+    }
+  }
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
