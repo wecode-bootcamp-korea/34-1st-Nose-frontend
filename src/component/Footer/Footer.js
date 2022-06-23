@@ -3,37 +3,37 @@ import './Footer.scss';
 
 const Footer = () => {
   return (
-    <div className="footerContainer">
+    <div className="footer">
       <div className="contentBox">
         <div className="sections">
           <div className="section">
-            <ul>고객센터</ul>
+            <div className="sectionText">고객센터</div>
           </div>
           <div className="section">
-            <ul>문의</ul>
+            <div>문의</div>
           </div>
           <div className="section">
-            <ul>혜택</ul>
+            <div>혜택</div>
           </div>
           <div className="section">
-            <ul>파펨의 가치관</ul>
+            <div>파펨의 가치관</div>
           </div>
         </div>
         <div className="sections sectionsMargin">
           <div className="section">이메일|help@paffem.com</div>
           <div className="section">
-            <ul>공지사항</ul>
-            <ul>FAQ</ul>
-            <ul>1:1문의</ul>
+            <div>공지사항</div>
+            <div>FAQ</div>
+            <div>1:1문의</div>
           </div>
           <div className="section">
-            <ul>친구 추천 포인트</ul>
-            <ul>2.5ML 교환 서비스</ul>
+            <div>친구 추천 포인트</div>
+            <div>2.5ML 교환 서비스</div>
           </div>
           <div className="section">
-            <ul>Find Your Signature</ul>
-            <ul>Eco friendly</ul>
-            <ul>Better but different</ul>
+            <div>Find Your Signature</div>
+            <div>Eco friendly</div>
+            <div>Better but different</div>
           </div>
         </div>
         <div className="informationContainer">
