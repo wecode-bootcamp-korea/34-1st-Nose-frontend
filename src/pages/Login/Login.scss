@@ -1,9 +1,9 @@
 .login {
   display: flex;
-  // margin: 0 auto;
+
   justify-content: center;
   align-items: center;
-  // background-color:;
+
   .loginForm {
     margin-top: 170px;
     text-align: center;
@@ -22,7 +22,7 @@
       .idpwLogin {
         .id_Wrapper {
           text-align: left;
-          font-size: 16px;
+          font-size: 14px;
           border-style: solid;
         }
         .inputWrapper {
@@ -40,7 +40,7 @@
           .pw_Wrapper {
             margin-top: 9px;
             text-align: left;
-            font-size: 16px;
+            font-size: 14px;
             margin-top: 10px;
           }
           .pw_Blank {
@@ -64,6 +64,7 @@
       .findButton {
         display: flex;
         justify-content: space-between;
+        font-size: 12px;
       }
       .findName {
         text-align: left;
