@@ -1,6 +1,7 @@
-// import { check } from 'prettier';
 import React, { useEffect, useState } from 'react';
 import './Cart.scss';
+import CartCalculate from './component/CartCalculate';
+import CartList from './component/CartList';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
@@ -26,12 +27,6 @@ const Cart = () => {
       });
     });
   };
-
-  // useEffect(()=> {
-  //   const totalPrice = cartList.reduce((acc.obj)=> {
-  //     return (acc+=obj.checked ? )
-  //   }
-  // })
   //리스트 선택
   const isListChecked = (e, id) => {
     const { checked } = e.target;
@@ -54,7 +49,6 @@ const Cart = () => {
     setCartList(oldList => {
       const result = oldList.map(el => {
         if (el.id === id) el.quantity += 1;
-        // console.log('id:%d , quantity:%d', el.id, el.quantity);
         return el;
       });
       return result;
@@ -68,14 +62,12 @@ const Cart = () => {
         if (el.quantity < 0) el.quantity = 0;
         return el;
       });
-      // console.log(result);
       return result;
     });
   };
   const deleteList = id => {
     setCartList(oldList => {
       const result = cartList.filter(el => {
-        // if (item.id !== id) return item;
         return el.id !== id;
       });
       return result;
@@ -100,8 +92,6 @@ const Cart = () => {
               <input
                 type="checkBox"
                 className="allCheckBox"
-                // checked={allcheckedBox}
-                // onClick={isChecked}
                 onChange={isChecked}
                 checked={allcheckedBox}
               />
@@ -123,68 +113,25 @@ const Cart = () => {
           </div>
           <form className="cartItem">
             <ul>
-              {cartList.map(value => (
-                <li key={value.id} className="whatsInYourCart">
-                  {/* {setQuantity(value.quantity)} */}
-                  <div className="cartItemColumn">
-                    <input
-                      type="checkBox"
-                      onChange={e => {
-                        isListChecked(e, value.id);
-                      }}
-                      checked={value.checked}
-                    />
-                    <img
-                      className="itemImage"
-                      src={value.imageUrl}
-                      alt="상품사진"
-                    />
-                  </div>
-                  <div className="cartItemColumn">
-                    <div className="itemName">
-                      <span className="itemMainName">{value.itemName}</span>
-                      <span className="itemSubName">2.5ml x 6 bottles</span>
-                    </div>
-                  </div>
-                  <div className="cartItemColumn">
-                    <div className="amountButtonBox">
-                      <button
-                        className="decreaseButton"
-                        onClick={e => {
-                          minusOneQuantity(value.id);
-                        }}
-                      >
-                        -
-                      </button>
-                      <span className="value">{value.quantity}</span>
-                      <button
-                        className="increaseButton"
-                        onClick={e => {
-                          plusOneQuantity(value.id);
-                        }}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                  <div className="cartItemColumn">
-                    <div className="deliveryPrice">{deliveryFee}</div>
-                  </div>
-                  <div className="cartItemColumn">
-                    <div className="cartItemPrice">{value.price}</div>
-                  </div>
-                  <div className="cartItemColumn">
-                    <button
-                      className="cartItemDeleteButton"
-                      onClick={e => {
-                        deleteList(value.id);
-                      }}
-                    >
-                      x
-                    </button>
-                  </div>
-                </li>
-              ))}
+              {cartList.map((value, index) => {
+                return (
+                  <CartList
+                    key={index}
+                    id={value.id}
+                    imageUrl={value.imageUrl}
+                    itemName={value.itemName}
+                    checked={value.checked}
+                    quantity={value.quantity}
+                    deliveryFee={deliveryFee}
+                    price={value.price}
+                    isListChecked={isListChecked}
+                    deleteList={deleteList}
+                    minusOneQuantity={minusOneQuantity}
+                    plusOneQuantity={plusOneQuantity}
+                    cartList={cartList}
+                  />
+                );
+              })}
             </ul>
           </form>
           <div className="cartTotalHeader">
@@ -196,16 +143,10 @@ const Cart = () => {
             <div />
             <div className="cartTotalHeaderColumn">총 결제금액</div>
           </div>
-          <div className="priceBox">
-            <div className="cartPriceColumn">{totalCheckedPrice}</div>
-            <div className="cartPriceColumn">-</div>
-            <div className="cartPriceColumn">0원</div>
-            <div className="cartPriceColumn">+</div>
-            <div className="cartPriceColumn">{deliveryFee}</div>
-            <div className="cartPriceColumn">
-              {totalCheckedPrice + deliveryFee}
-            </div>
-          </div>
+          <CartCalculate
+            totalCheckedPrice={totalCheckedPrice}
+            deliveryFee={deliveryFee}
+          />
           <div className="orderBox">
             <button className="orderButton">주문하기</button>
           </div>
