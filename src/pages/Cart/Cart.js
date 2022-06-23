@@ -1,4 +1,4 @@
-import { check } from 'prettier';
+// import { check } from 'prettier';
 import React, { useEffect, useState } from 'react';
 import './Cart.scss';
 
@@ -6,16 +6,16 @@ const Cart = () => {
   const [cartList, setCartList] = useState([]);
   const [totalCheckedPrice, setTotalCheckedPrice] = useState();
   const [allcheckedBox, setAllCheckedBox] = useState(false);
-  const [deliveryFee, setDeliveryFee] = useState(0);
-
+  let deliveryFee = totalCheckedPrice >= 30000 ? 0 : 2500;
+  //총 계산 로직
   useEffect(() => {
-    const totalPrice = cartList.reduce((acc, obj) => {
-      return (acc += obj.checked ? obj.quantity * obj.price : 0);
+    const totalPrice = cartList.reduce((accumulator, obj) => {
+      return (accumulator += obj.checked ? obj.quantity * obj.price : 0);
     }, 0);
     setTotalCheckedPrice(totalPrice);
-    setDeliveryFee(totalCheckedPrice > 30000 ? 0 : 2500);
   }, [cartList, totalCheckedPrice]);
 
+  //전체 선택
   const isChecked = ({ target: { checked } }) => {
     setAllCheckedBox(checked);
     setCartList(oldList => {
@@ -27,6 +27,12 @@ const Cart = () => {
     });
   };
 
+  // useEffect(()=> {
+  //   const totalPrice = cartList.reduce((acc.obj)=> {
+  //     return (acc+=obj.checked ? )
+  //   }
+  // })
+  //리스트 선택
   const isListChecked = (e, id) => {
     const { checked } = e.target;
     let allCheck = true;
@@ -48,7 +54,7 @@ const Cart = () => {
     setCartList(oldList => {
       const result = oldList.map(el => {
         if (el.id === id) el.quantity += 1;
-        console.log('id:%d , quantity:%d', el.id, el.quantity);
+        // console.log('id:%d , quantity:%d', el.id, el.quantity);
         return el;
       });
       return result;
@@ -59,9 +65,19 @@ const Cart = () => {
     setCartList(oldList => {
       const result = oldList.map(el => {
         if (el.id === id) el.quantity -= 1;
+        if (el.quantity < 0) el.quantity = 0;
         return el;
       });
-      console.log(result);
+      // console.log(result);
+      return result;
+    });
+  };
+  const deleteList = id => {
+    setCartList(oldList => {
+      const result = cartList.filter(el => {
+        // if (item.id !== id) return item;
+        return el.id !== id;
+      });
       return result;
     });
   };
@@ -152,10 +168,20 @@ const Cart = () => {
                     </div>
                   </div>
                   <div className="cartItemColumn">
-                    <div className="deliveryPrice">조건</div>
+                    <div className="deliveryPrice">{deliveryFee}</div>
                   </div>
                   <div className="cartItemColumn">
                     <div className="cartItemPrice">{value.price}</div>
+                  </div>
+                  <div className="cartItemColumn">
+                    <button
+                      className="cartItemDeleteButton"
+                      onClick={e => {
+                        deleteList(value.id);
+                      }}
+                    >
+                      x
+                    </button>
                   </div>
                 </li>
               ))}

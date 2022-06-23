@@ -40,14 +40,14 @@
       .cartItem {
         display: flex;
         border-top: 1px solid black;
-        justify-content: space-between;
+        justify-content: space-evenly;
         .whatsInYourCart {
           display: flex;
           border-top: 1px dotted yellow; // justify-content: space-between;
           .cartItemColumn {
             display: flex;
-            margin-right: 100px;
-            margin-left: 30px;
+            margin-right: 80px;
+            margin-left: 20px;
             align-items: center;
             justify-content: left;
             .itemName {
