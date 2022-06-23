@@ -1,11 +1,179 @@
-.mainContainer {
-  height: 900px;
-}
 .container {
-  height: 600px;
+  .changeSignature {
+    background-image: url('../../assets/images/main/change_signature.jpg');
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 900px;
+
+    .textContent {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .prefixTitle {
+        font-size: 30px;
+      }
+
+      .suffixTitle {
+        margin: 20px;
+        font-size: 50px;
+      }
+
+      button {
+        margin-top: 100px;
+        width: 300px;
+        height: 60px;
+        font-size: 20px;
+        background-color: transparent;
+        border-color: white;
+        color: white;
+      }
+    }
+  }
+
+  .perfumeTeller {
+    background-image: url('../../assets/images/main/perfume_teller.jpg');
+    background-size: cover;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 600px;
+
+    .textContent {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .prefixTitle {
+        font-size: 40px;
+      }
+
+      .suffixTitle {
+        margin: 20px;
+        font-size: 23px;
+      }
+
+      button {
+        margin-top: 100px;
+        width: 300px;
+        height: 60px;
+        font-size: 20px;
+        background-color: transparent;
+        border-color: white;
+        color: white;
+      }
+    }
+  }
+
+  .discoverySet {
+    background-image: url('../../assets/images/main/discovery_set.jpg');
+    background-size: cover;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 600px;
+
+    .textContent {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .prefixTitle {
+        font-size: 40px;
+      }
+
+      .suffixTitle {
+        margin: 20px;
+        font-size: 23px;
+      }
+
+      button {
+        margin-top: 100px;
+        width: 300px;
+        height: 60px;
+        font-size: 20px;
+        background-color: transparent;
+      }
+    }
+  }
+  .brandInformation {
+    position: relative;
+    width: 100%;
+    height: 600px;
+
+    .textContent {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .imageBox {
+        display: flex;
+        margin-top: 100px;
+
+        .infoBox {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          margin: 10px;
+
+          img {
+            width: 60px;
+            height: 60px;
+          }
+
+          .infoText {
+            font-size: 11px;
+            width: 100px;
+            margin-top: 15px;
+            text-align: center;
+          }
+        }
+      }
+      .prefixTitle {
+        font-size: 40px;
+      }
+
+      button {
+        margin-top: 100px;
+        width: 300px;
+        height: 60px;
+        font-size: 20px;
+        background-color: transparent;
+      }
+    }
+  }
+  video {
+    width: 100%;
+  }
 }
+
 .lastContainer {
   background-color: black;
   color: white;
   height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .suffixTitle {
+    font-size: 30px;
+  }
 }
