@@ -19,15 +19,18 @@
       .modalText {
         margin-top: 30px;
       }
+      .linkText {
+        text-decoration: none;
+      }
     }
 
     .imgBox {
       margin-right: 50px;
+
+      .modalImg {
+        width: 200px;
+        height: 200px;
+      }
     }
   }
-}
-
-img {
-  width: 200px;
-  height: 200px;
 }
