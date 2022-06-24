@@ -51,7 +51,7 @@ const Signup = () => {
       : 'redMessageActive';
 
   const postUserData = () => {
-    fetch('http://10.58.7.241:8000/users/signup', {
+    fetch('http://10.58.3.43:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         name: name,

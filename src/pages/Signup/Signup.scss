@@ -40,37 +40,36 @@
         }
       }
     }
+    input {
+      height: 45px;
+      width: 300px;
+      padding: 10px;
+      border: 1px solid rgb(209, 207, 207);
+    }
   }
-}
 
-input {
-  height: 45px;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid rgb(209, 207, 207);
-}
+  .wrapper {
+    padding: 10px;
+  }
 
-.wrapper {
-  padding: 10px;
-}
+  .text {
+    padding-bottom: 6px;
+  }
 
-.text {
-  padding-bottom: 6px;
-}
+  .redMessageActive {
+    color: red;
+  }
 
-.redMessageActive {
-  color: red;
-}
+  .redMessageInactive {
+    color: transparent;
+  }
 
-.redMessageInactive {
-  color: transparent;
-}
+  .signup {
+    font-size: 15px;
+    font-weight: 200;
+  }
 
-.signup {
-  font-size: 15px;
-  font-weight: 200;
-}
-
-.input label {
-  size: 20px;
+  .input label {
+    size: 20px;
+  }
 }
