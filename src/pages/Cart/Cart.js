@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import './Cart.scss';
 import CartCalculate from './component/CartCalculate';
 import CartList from './component/CartList';
+import './Cart.scss';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
-  const [totalCheckedPrice, setTotalCheckedPrice] = useState();
+  const [totalCheckedPrice, setTotalCheckedPrice] = useState(0);
   const [allcheckedBox, setAllCheckedBox] = useState(false);
   let deliveryFee = totalCheckedPrice >= 30000 ? 0 : 2500;
+  const HEADER_COLUMN = ['제품 정보', '수량', '배송비', '금액'];
+  const TOTAL_HEADER = ['총 상품가격', '추가 금액', '배송비', '총 결제금액'];
+
+  //mock data 받아오기
+  useEffect(() => {
+    fetch('data/itemData.json')
+      .then(res => res.json())
+      .then(res => setCartList(res));
+  }, []);
   //총 계산 로직
   useEffect(() => {
     const totalPrice = cartList.reduce((accumulator, obj) => {
@@ -21,9 +30,9 @@ const Cart = () => {
     setAllCheckedBox(checked);
     setCartList(oldList => {
       //oldList 기존에 있는 배열 값
-      return oldList.map(el => {
-        el.checked = checked;
-        return el;
+      return oldList.map(listItem => {
+        listItem.checked = checked;
+        return listItem;
       });
     });
   };
@@ -32,12 +41,12 @@ const Cart = () => {
     const { checked } = e.target;
     let allCheck = true;
     setCartList(oldList => {
-      const result = oldList.map(el => {
-        if (el.id === id) {
-          el.checked = checked;
+      const result = oldList.map(listItem => {
+        if (listItem.id === id) {
+          listItem.checked = checked;
         }
-        if (el.checked === false) allCheck = false;
-        return el;
+        if (listItem.checked === false) allCheck = false;
+        return listItem;
       });
 
       setAllCheckedBox(allCheck);
@@ -47,9 +56,9 @@ const Cart = () => {
 
   const plusOneQuantity = id => {
     setCartList(oldList => {
-      const result = oldList.map(el => {
-        if (el.id === id) el.quantity += 1;
-        return el;
+      const result = oldList.map(listItem => {
+        if (listItem.id === id) listItem.quantity += 1;
+        return listItem;
       });
       return result;
     });
@@ -57,28 +66,22 @@ const Cart = () => {
 
   const minusOneQuantity = id => {
     setCartList(oldList => {
-      const result = oldList.map(el => {
-        if (el.id === id) el.quantity -= 1;
-        if (el.quantity < 0) el.quantity = 0;
-        return el;
+      const result = oldList.map(listItem => {
+        if (listItem.id === id) listItem.quantity -= 1;
+        if (listItem.quantity < 0) listItem.quantity = 0;
+        return listItem;
       });
       return result;
     });
   };
   const deleteList = id => {
     setCartList(oldList => {
-      const result = cartList.filter(el => {
-        return el.id !== id;
+      const result = cartList.filter(listItem => {
+        return listItem.id !== id;
       });
       return result;
     });
   };
-
-  useEffect(() => {
-    fetch('data/itemData.json')
-      .then(res => res.json())
-      .then(res => setCartList(res));
-  }, []);
 
   return (
     <div className="cartPageBody">
@@ -96,34 +99,24 @@ const Cart = () => {
                 checked={allcheckedBox}
               />
               <span className="selectAll">전체 선택 </span>
-              <span className="deleteSelected">선택 삭제 </span>
+              <span className="deleteSeleb cted">선택 삭제 </span>
             </div>
-            <div className="cartHeaderColumn">
-              <span className="headColumnText">제품 정보 </span>
-            </div>
-            <div className="cartHeaderColumn">
-              <span className="headColumnText">수량 </span>
-            </div>
-            <div className="cartHeaderColumn">
-              <span className="headColumnText">배송비 </span>
-            </div>
-            <div className="cartHeaderColumn">
-              <span className="headColumnText">금액 </span>
-            </div>
+            {HEADER_COLUMN.map(word => {
+              return (
+                <div className="cartHeaderColumn" key={word.id}>
+                  <span className="headColumnText">{word}</span>
+                </div>
+              );
+            })}
           </div>
           <form className="cartItem">
             <ul>
-              {cartList.map((value, index) => {
+              {cartList.map(listItem => {
                 return (
                   <CartList
-                    key={index}
-                    id={value.id}
-                    imageUrl={value.imageUrl}
-                    itemName={value.itemName}
-                    checked={value.checked}
-                    quantity={value.quantity}
+                    key={listItem.id}
+                    listItem={listItem}
                     deliveryFee={deliveryFee}
-                    price={value.price}
                     isListChecked={isListChecked}
                     deleteList={deleteList}
                     minusOneQuantity={minusOneQuantity}
@@ -135,13 +128,13 @@ const Cart = () => {
             </ul>
           </form>
           <div className="cartTotalHeader">
-            <div className="cartTotalHeaderColumn">총 상품가격</div>
-            <div />
-            <div className="cartTotalHeaderColumn">추가 금액</div>
-            <div />
-            <div className="cartTotalHeaderColumn">배송비</div>
-            <div />
-            <div className="cartTotalHeaderColumn">총 결제금액</div>
+            {TOTAL_HEADER.map(word => {
+              return (
+                <div className="cartTotalHeaderColumn" key={word.id}>
+                  {word}
+                </div>
+              );
+            })}
           </div>
           <CartCalculate
             totalCheckedPrice={totalCheckedPrice}
