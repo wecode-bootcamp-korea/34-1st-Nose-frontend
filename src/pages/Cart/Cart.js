@@ -104,7 +104,7 @@ const Cart = () => {
             {HEADER_COLUMN.map(word => {
               return (
                 <div className="cartHeaderColumn" key={word.id}>
-                  <span className="headColumnText">{word}</span>
+                  <span className="headCflolumnText">{word}</span>
                 </div>
               );
             })}
