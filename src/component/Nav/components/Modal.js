@@ -4,7 +4,7 @@ import './Modal.scss';
 
 const Modal = ({ modalOpen, closeModal }) => {
   return (
-    <div className={modalOpen ? 'openModal modal' : 'modal'}>
+    <div className="modal">
       {modalOpen && (
         <div className="modalContent" onMouseLeave={closeModal}>
           <div className="modalTextContainer">

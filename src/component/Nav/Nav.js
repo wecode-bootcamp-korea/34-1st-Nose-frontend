@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Modal from './component/Modal';
+import Modal from './components/Modal';
 import './Nav.scss';
 
 const Nav = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const updateScroll = () => {
-    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-  };
-
   useEffect(() => {
-    window.addEventListener('scroll', updateScroll);
+    window.addEventListener('scroll', () => {
+      setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+    });
   });
 
   const openModal = () => {
@@ -22,16 +20,18 @@ const Nav = () => {
     setModalOpen(false);
   };
 
+  const isScrollMoved = scrollPosition < 5;
+
   const scrollNavHandle = () => {
-    return scrollPosition < 5 ? '' : ' changeNav';
+    return isScrollMoved ? '' : ' changeNav';
   };
 
   const scrollLinktagHandle = () => {
-    return scrollPosition < 5 ? '' : ' changeLinktagText';
+    return isScrollMoved ? '' : ' changeLinktagText';
   };
 
   const scrollimgHandle = () => {
-    return scrollPosition < 5 ? '' : ' changeImg';
+    return isScrollMoved ? '' : ' changeImg';
   };
 
   return (
