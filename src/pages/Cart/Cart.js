@@ -42,6 +42,7 @@ const Cart = () => {
     let allCheck = true;
     setCartList(oldList => {
       const result = oldList.map(listItem => {
+        console.log(id);
         if (listItem.id === id) {
           listItem.checked = checked;
         }
