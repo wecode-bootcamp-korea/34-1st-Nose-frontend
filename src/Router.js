@@ -20,7 +20,7 @@ function Router() {
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
-        <Route path="/Detail" element={<Detail />} />
+        <Route path="/Detail/:id" element={<Detail />} />
         <Route path="/Shop" element={<Shop />} />
         <Route path="/Survey" element={<Survey />} />
         <Route path="/Qna" element={<Qna />} />
