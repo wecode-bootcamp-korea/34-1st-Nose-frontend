@@ -32,6 +32,9 @@
         background-color: transparent;
         border-color: white;
         color: white;
+        &:hover {
+          background-color: black;
+        }
       }
     }
   }
@@ -70,6 +73,9 @@
         background-color: transparent;
         border-color: white;
         color: white;
+        &:hover {
+          background-color: black;
+        }
       }
     }
   }
@@ -106,6 +112,10 @@
         height: 60px;
         font-size: 20px;
         background-color: transparent;
+        &:hover {
+          background-color: black;
+          color: white;
+        }
       }
     }
   }
@@ -162,17 +172,16 @@
   .mainVideo {
     width: 100%;
   }
-}
+  .lastContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    background-color: black;
+    color: white;
 
-.lastContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  background-color: black;
-  color: white;
-
-  .suffixTitle {
-    font-size: 30px;
+    .suffixTitle {
+      font-size: 30px;
+    }
   }
 }

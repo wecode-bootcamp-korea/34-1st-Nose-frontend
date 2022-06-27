@@ -4,18 +4,19 @@ import './Main.scss';
 
 const Main = () => {
   const changeBlack = e => {
-    e.target.style.background = 'black';
-  };
-  const defaultColor = e => {
-    e.target.style.background = 'transparent';
+    // e.target.style.background = 'black';
   };
   const changeAllBlack = e => {
-    e.target.style.background = 'black';
-    e.target.style.color = 'white';
+    // e.target.style.background = 'black';
+    // e.target.style.color = 'white';
   };
+  const defaultColor = e => {
+    // e.target.style.background = 'transparent';
+  };
+
   const defalutAllColor = e => {
-    e.target.style.background = 'transparent';
-    e.target.style.color = 'black';
+    // e.target.style.background = 'transparent';
+    // e.target.style.color = 'black';
   };
 
   return (
