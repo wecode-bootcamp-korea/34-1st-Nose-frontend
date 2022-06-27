@@ -1,3 +1,5 @@
+@import '../../../styles/mixin.scss';
+
 .modal {
   position: fixed;
   top: 108px;
@@ -7,10 +9,10 @@
   margin: 0;
 
   .modalContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    @include optionalFlex(none, flex-start);
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
     .modalTextContainer {
       margin: 50px 0 230px 80px;
 
