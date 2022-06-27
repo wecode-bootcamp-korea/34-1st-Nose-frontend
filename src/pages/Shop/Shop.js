@@ -5,7 +5,6 @@ import './Shop.scss';
 
 const Shop = () => {
   const [perfumes, setPerfumes] = useState([]);
-  const params = useParams();
 
   useEffect(() => {
     fetch(`./data/Itemlist.json`)
@@ -20,6 +19,7 @@ const Shop = () => {
 
   return (
     <div className="Shop">
+      <div className="categoryWrapper"></div>
       <div className="perfumeWrapper">
         <PerfumeList perfumes={perfumes} goToDetailPage={goToDetailPage} />
       </div>

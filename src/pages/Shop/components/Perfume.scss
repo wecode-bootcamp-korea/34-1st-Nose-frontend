@@ -1,9 +1,37 @@
 .perfumeBox {
   display: flex;
   flex-direction: column;
+  margin: 10px;
   min-width: 0;
 
   .perfumeImg {
-    width: 250px;
+    width: 235px;
+    height: 293px;
+    object-fit: cover;
+  }
+
+  .perfumeText {
+    margin: 10px;
+
+    .perfumeName {
+      font-family: sans-serif;
+      font-weight: 540;
+      font-size: 20px;
+    }
+    .perfumeTags {
+    }
+  }
+
+  .addButton {
+    display: flex;
+    align-self: center;
+    align-content: flex-end;
+    height: 80px;
+    width: 20px;
+    border-radius: 50%;
+
+    .addButton :hover {
+      cursor: pointer;
+    }
   }
 }
