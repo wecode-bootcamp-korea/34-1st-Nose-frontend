@@ -1,0 +1,10 @@
+.Shop {
+  width: 100%;
+  .perfumeWrapper {
+    .PerfumeList {
+      display: flex;
+      max-width: 1200px;
+      flex-wrap: wrap;
+    }
+  }
+}

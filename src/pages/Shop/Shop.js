@@ -19,9 +19,10 @@ const Shop = () => {
   };
 
   return (
-    <div className="perfumes">
-      <h1>shop page</h1>
-      <PerfumeList perfumes={perfumes} goToDetailPage={goToDetailPage} />
+    <div className="Shop">
+      <div className="perfumeWrapper">
+        <PerfumeList perfumes={perfumes} goToDetailPage={goToDetailPage} />
+      </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import Perfume from './Perfume';
 
 const PerfumeList = ({ perfumes, goToDetailPage }) => {
   return (
-    <div className="perfumeList">
+    <div className="PerfumeList">
       {perfumes.map(perfume => {
         return (
           <Perfume

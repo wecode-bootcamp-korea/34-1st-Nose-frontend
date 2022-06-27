@@ -1,0 +1,9 @@
+.perfumeBox {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  .perfumeImg {
+    width: 250px;
+  }
+}
