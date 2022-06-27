@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { api, BASE_URL } from '../../config';
 import './Signup.scss';
 
 const Signup = () => {
@@ -51,22 +52,30 @@ const Signup = () => {
       : 'redMessageActive';
 
   const postUserData = () => {
-    fetch('http://10.58.3.43:8000/users/signup', {
+    fetch(api.signup, {
       method: 'POST',
       body: JSON.stringify({
-        name: name,
-        account: account,
-        email: email,
-        phone_number: phone_number,
-        password: password,
+        name,
+        account,
+        email,
+        phone_number,
+        password,
       }),
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.status === 200) {
+          return res.json();
+        }
+        throw new Error('통신실패');
+      })
       .then(result => {
         if (result.message === 'SUCCESS') {
           navigate('/login');
+        } else if (result.message === 'ALREADY_EXIST') {
+          alert('이미 가입된 회원입니다');
         }
-      });
+      })
+      .catch(err => console.log(err));
   };
 
   const isAllTrue =
