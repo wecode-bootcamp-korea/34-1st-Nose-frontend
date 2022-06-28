@@ -32,6 +32,10 @@
         background-color: transparent;
         border-color: white;
         color: white;
+
+        &:hover {
+          background-color: black;
+        }
       }
     }
   }
@@ -70,6 +74,10 @@
         background-color: transparent;
         border-color: white;
         color: white;
+
+        &:hover {
+          background-color: black;
+        }
       }
     }
   }
@@ -106,6 +114,11 @@
         height: 60px;
         font-size: 20px;
         background-color: transparent;
+
+        &:hover {
+          background-color: black;
+          color: white;
+        }
       }
     }
   }
@@ -156,6 +169,11 @@
         height: 60px;
         font-size: 20px;
         background-color: transparent;
+
+        &:hover {
+          background-color: black;
+          color: white;
+        }
       }
     }
   }

@@ -3,21 +3,6 @@ import { Link } from 'react-router-dom';
 import './Main.scss';
 
 const Main = () => {
-  const changeBlack = e => {
-    e.target.style.background = 'black';
-  };
-  const defaultColor = e => {
-    e.target.style.background = 'transparent';
-  };
-  const changeAllBlack = e => {
-    e.target.style.background = 'black';
-    e.target.style.color = 'white';
-  };
-  const defalutAllColor = e => {
-    e.target.style.background = 'transparent';
-    e.target.style.color = 'black';
-  };
-
   return (
     <div className="main">
       {CONTAINERDATA.map((data, idx) => {
@@ -27,17 +12,7 @@ const Main = () => {
               <div className="prefixTitle">{data.prefixText}</div>
               <div className="suffixTitle">{data.suffixText}</div>
               <Link to={data.linkTo}>
-                <button
-                  className="pageChangeButton"
-                  onMouseOver={e =>
-                    idx !== 2 ? changeBlack(e) : changeAllBlack(e)
-                  }
-                  onMouseLeave={e =>
-                    idx !== 2 ? defaultColor(e) : defalutAllColor(e)
-                  }
-                >
-                  {data.buttonText}
-                </button>
+                <button className="pageChangeButton">{data.buttonText}</button>
               </Link>
             </div>
           </div>
@@ -62,13 +37,7 @@ const Main = () => {
               );
             })}
           </div>
-          <button
-            className="pageChangeButton"
-            onMouseOver={e => changeAllBlack(e)}
-            onMouseLeave={e => defalutAllColor(e)}
-          >
-            자세히보기
-          </button>
+          <button className="pageChangeButton">자세히보기</button>
         </div>
       </div>
       <div className="lastContainer">
