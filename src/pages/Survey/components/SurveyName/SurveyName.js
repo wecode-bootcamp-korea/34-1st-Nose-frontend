@@ -1,26 +1,24 @@
 import React from 'react';
 import { useState } from 'react';
-import {
-  useNavigate,
-  useParams,
-  Link,
-  Location,
-  useLocation,
-} from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './SurveyName.scss';
 
 const SurveyName = () => {
   const [userName, setUserName] = useState('');
-  const params = useParams();
+  const location = useLocation();
+
   const inputUserName = e => {
     setUserName(e.target.value);
   };
-  params.userName = { userName };
-  console.log(params.userName.userName);
 
   const navigate = useNavigate();
   const goToFavoriteScent = () => {
-    navigate(`/Survey/FavoriteScent/${params.userName.userName}`);
+    navigate(`/Survey/FavoriteScent/`);
+  };
+
+  const updateUserName = () => {
+    const queryString = `?name=${userName}`;
+    navigate(`/Survey/FavoriteScent/${queryString}`);
   };
 
   const goToPreview = () => {
@@ -46,7 +44,7 @@ const SurveyName = () => {
           {/* <Link
             to={{ pathname: '/Survey/FavoriteScent', search: `?${userName}` }}
           > */}
-          <button className="nextButton" onClick={goToFavoriteScent}>
+          <button className="nextButton" onClick={() => updateUserName()}>
             다음
           </button>
           {/* </Link> */}

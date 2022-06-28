@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './SurveyResult.scss';
 
 const SurveyResult = () => {
   const [perfumeList, setPerfumeList] = useState([]);
+  const location = useLocation();
+  const decodeUri = decodeURI(location.search);
+  const userName = () => {
+    const nameStart = decodeUri.indexOf(`=`);
+    return decodeUri.slice(nameStart + 1, nameStart + 4);
+  };
+
   function randomNumberInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -14,17 +21,22 @@ const SurveyResult = () => {
       .then(res => res.json())
       .then(res => setPerfumeList(res));
   }, []);
+
   const perfume = perfumeList[randomNumber];
+
   const detailUrl = `/detail/${randomNumber}`;
+
   return (
     <div className="SurveyResult">
       {perfume ? (
         <div className="resultContainer">
           <div className="userTaste">
             <div className="userTasteText">
-              <div>00님의 향기 취향은</div>
-              <div>{perfume.tags}</div>
-              <div>좋아하는 느낌은 달달한,귀여운,성숙한 이네요.</div>
+              <div className="title">{userName()}님의 향기 취향은</div>
+              <div className="suffix">{perfume.tags}</div>
+              <div className="prefix">
+                좋아하는 느낌은 달달한,귀여운,성숙한 이네요.
+              </div>
             </div>
             <img
               className="userTasteImg"
@@ -43,7 +55,7 @@ const SurveyResult = () => {
               <div className="imgText">
                 <div className="title">{perfume.name.slice(0, 7)}</div>
                 <div className="prefix">{perfume.name.slice(8)}</div>
-                <div className="sufix">{perfume.tags}</div>
+                <div className="suffix">{perfume.tags}</div>
               </div>
             </div>
           </div>
@@ -59,13 +71,16 @@ const SurveyResult = () => {
               />
             </Link>
             <div className="itemInfoText">
-              <div>EAU DE PARFUM</div>
-              <div>2.5ml / 50회 이상의 분사량</div>
-              <div>12% 2.5ml 1병 = 4,000원</div>
+              <div className="title">EAU DE PARFUM</div>
+              <div className="prefix">2.5ml / 50회 이상의 분사량</div>
+              <div className="suffix">12% 2.5ml 1병 = 4,000원</div>
             </div>
           </div>
-          <div className="shareResultContainer">
-            <div className="shareResultText">퍼퓸텔러 결과 공유하기</div>
+          <div className="resultFooter">
+            <div className="buttonContainer">
+              <button className="goToSurveyButton">다시하기</button>
+              <button className="goToDetailPage">향수보러가기</button>
+            </div>
           </div>
         </div>
       ) : null}

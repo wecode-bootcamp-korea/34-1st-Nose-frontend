@@ -16,12 +16,25 @@
 
       .userTasteText {
         padding-bottom: 30px;
+        font-size: 20px;
+
+        .title {
+          margin-bottom: 10px;
+        }
+        .suffix {
+          margin-bottom: 10px;
+        }
+        .prefix {
+          margin-bottom: 10px;
+        }
       }
 
       .userTasteImg {
-        width: 300px;
+        width: 500px;
         height: 300px;
-        margin-top: 30px;
+        margin: 30px 0;
+        border-bottom: gray 2px solid;
+        border-top: gray 2px solid;
       }
     }
     .recommendText {
@@ -40,36 +53,37 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        .rose {
-          background-color: red;
-        }
 
         .img {
           width: 200px;
           height: 200px;
+          margin-bottom: 30px;
         }
 
         .title {
           font-size: 15px;
+          margin-bottom: 10px;
         }
         .prefix {
           font-size: 18px;
+          margin-bottom: 10px;
         }
-        .sufix {
+        .suffix {
           font-size: 13px;
           opacity: 0.8;
+          margin-bottom: 10px;
         }
       }
     }
-
     .itemInfo {
-      margin-top: 100px;
+      margin: 150px 0;
       display: flex;
       align-items: center;
       flex-direction: column;
 
       .itemInfoTitle {
         font-size: 20px;
+        margin-bottom: 100px;
       }
       .itemImg {
         background-color: blue;
@@ -79,6 +93,28 @@
 
       .itemInfoText {
         text-align: center;
+
+        .title {
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+        .prefix {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+        .suffix {
+          font-size: 13px;
+          opacity: 0.8;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .resultFooter {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      .buttonContainer {
       }
     }
   }

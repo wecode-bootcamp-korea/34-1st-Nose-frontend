@@ -19,6 +19,11 @@
         background-color: rgb(235, 235, 235);
         margin-top: 20px;
         border: none;
+
+        &:hover {
+          background-color: black;
+          color: white;
+        }
       }
     }
   }

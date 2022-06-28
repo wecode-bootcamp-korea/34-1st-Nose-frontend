@@ -2,15 +2,16 @@ import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import './FavoriteScent.scss';
 import { useLocation } from 'react-router-dom';
-const FavoriteScent = ({ props }) => {
+const FavoriteScent = () => {
   const location = useLocation();
   const decodeUri = decodeURI(location.search);
-  console.log(decodeUri);
-  console.log(location);
   const navigate = useNavigate();
 
-  const goToFavoriteWord = () => {
-    navigate('/Survey/FavoriteWord');
+  const goToFavoriteWordUp = () => {
+    navigate(`/Survey/FavoriteWord/${decodeUri}&Filed`);
+  };
+  const goToFavoriteWordDown = () => {
+    navigate(`/Survey/FavoriteWord/${decodeUri}&Forest`);
   };
 
   return (
@@ -23,7 +24,7 @@ const FavoriteScent = ({ props }) => {
           <img
             src="/images/survey/survey_field.jpg"
             alt="survey_field"
-            onClick={goToFavoriteWord}
+            onClick={goToFavoriteWordUp}
             className="favoriteImage"
           />
           <div className="imgInfo">햇빛 반짝이는 들판의 싱그러움</div>
@@ -32,7 +33,7 @@ const FavoriteScent = ({ props }) => {
           <img
             src="/images/survey/survey_forest.jpg"
             alt="survey_forest"
-            onClick={goToFavoriteWord}
+            onClick={goToFavoriteWordDown}
             className="favoriteImage"
           />
           <div className="imgInfo">나무, 흙, 숲이 주는 깊이감</div>

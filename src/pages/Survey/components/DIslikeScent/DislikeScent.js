@@ -1,11 +1,23 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './DislikeScent.scss';
 
 const DislikeScent = () => {
+  const location = useLocation();
+  const decodeUri = decodeURI(location.search);
   const navigate = useNavigate();
-  const goToSurveyResult = () => {
-    navigate('/Survey/SurveyResult');
+
+  const goToSurveyResultWater = () => {
+    navigate(`/Survey/SurveyResult/${decodeUri}&Water`);
+  };
+  const goToSurveyResultFruit = () => {
+    navigate(`/Survey/SurveyResult/${decodeUri}&Fruit`);
+  };
+  const goToSurveyResultCinnamon = () => {
+    navigate(`/Survey/SurveyResult/${decodeUri}&Cinnamon`);
+  };
+  const goToSurveyResultVanilla = () => {
+    navigate(`/Survey/SurveyResult/${decodeUri}&Vanilla`);
   };
   return (
     <div className="DislikeScent">
@@ -16,7 +28,7 @@ const DislikeScent = () => {
             <img
               src="/images/survey/survey_water.jpg"
               alt="survey_water"
-              onClick={goToSurveyResult}
+              onClick={goToSurveyResultWater}
               className="dislikeImage"
             />
             <div className="imgSubtitle">강, 바다, 수영장의</div>
@@ -27,7 +39,7 @@ const DislikeScent = () => {
               <img
                 src="/images/survey/survey_fruit.jpg"
                 alt="survey_fruit"
-                onClick={goToSurveyResult}
+                onClick={goToSurveyResultFruit}
                 className="dislikeImage"
               />
             </div>
@@ -38,7 +50,7 @@ const DislikeScent = () => {
             <img
               src="/images/survey/survey_cinnamon.jpg"
               alt="survey_cinnamon"
-              onClick={goToSurveyResult}
+              onClick={goToSurveyResultCinnamon}
               className="dislikeImage"
             />
             <div className="imgSubtitle">코끝을 톡 건드리는</div>
@@ -48,7 +60,7 @@ const DislikeScent = () => {
             <img
               src="/images/survey/survey_vanilla.jpg"
               alt="survey_vanilla"
-              onClick={goToSurveyResult}
+              onClick={goToSurveyResultVanilla}
               className="dislikeImage"
             />
             <div className="imgSubtitle">달짝지근한</div>
