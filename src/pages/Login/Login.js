@@ -11,7 +11,8 @@ const Login = () => {
     setUserInfo({ ...userInfo, [name]: value });
   };
 
-  const loginFunction = () => {
+  const loginFunction = event => {
+    event.preventDefault();
     if (userInfo.userId.length === 0 || userInfo.userPw.length === 0) {
       alert('아이디 또는 비밀번호를 입력해주세요');
     } else {
@@ -67,15 +68,15 @@ const Login = () => {
             </div>
             <Link to="/signup">회원 가입하기</Link>
           </div>
-          <button type="button" className="btnLogin" onClick={loginFunction}>
+          <button type="submit" className="btnLogin" onClick={loginFunction}>
             로그인
           </button>
-          <p className="checkAgree">
+          <div className="checkAgree">
             <p className="infoUse">이용약관</p>,
             <p className="infoPersonal">개인정보 수집 및 이용</p>,
             <p className="infoProvide">개인정보 제공 내용</p>
             <p className="infoCheck">을 확인하였고 동의합니다.</p>
-          </p>
+          </div>
         </div>
       </form>
     </div>
