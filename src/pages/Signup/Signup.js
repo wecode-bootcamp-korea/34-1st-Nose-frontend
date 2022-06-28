@@ -54,11 +54,11 @@ const Signup = () => {
     fetch('http://10.58.3.43:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        name: name,
-        account: account,
-        email: email,
-        phone_number: phone_number,
-        password: password,
+        name,
+        account,
+        email,
+        phone_number,
+        password,
       }),
     })
       .then(res => res.json())
@@ -73,7 +73,7 @@ const Signup = () => {
     isAccountValid && isEmailValid && isPhoneNumberValid && isPasswordValid;
 
   return (
-    <div className="signup">
+    <div className="signUp">
       <form className="form">
         <div className="title">회원가입</div>
         <div className="nameWrapper wrapper">
@@ -84,7 +84,6 @@ const Signup = () => {
             placeholder="이름을 입력해주세요"
             name="name"
           />
-          <div className="message" />
         </div>
 
         <div className="accountWrapper wrapper">
@@ -156,7 +155,6 @@ const Signup = () => {
             type="password"
             placeholder="비밀번호를 다시 입력해주세요"
           />
-          <div className="message" />
         </div>
 
         {/* TODO: 백엔드에서 요청 하면 주석 풀고 쓰거나, 삭제할 예정 
