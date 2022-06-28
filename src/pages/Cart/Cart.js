@@ -5,11 +5,12 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
-  const [totalCheckedPrice, setTotalCheckedPrice] = useState(0);
+  // const [totalCheckedPrice, setTotalCheckedPrice] = useState(0);
   const [allcheckedBox, setAllCheckedBox] = useState(false);
-  let deliveryFee = totalCheckedPrice >= 30000 ? 0 : 2500;
-  const HEADER_COLUMN = ['제품 정보', '수량', '배송비', '금액'];
-  const TOTAL_HEADER = ['총 상품가격', '추가 금액', '배송비', '총 결제금액'];
+  const totalPrice = cartList.reduce((accumulator, obj) => {
+    return (accumulator += obj.checked ? obj.quantity * obj.price : 0);
+  }, 0);
+  let deliveryFee = totalPrice >= 30000 ? 0 : 2500;
 
   //mock data 받아오기
   useEffect(() => {
@@ -17,14 +18,6 @@ const Cart = () => {
       .then(res => res.json())
       .then(res => setCartList(res));
   }, []);
-  //총 계산 로직
-  useEffect(() => {
-    const totalPrice = cartList.reduce((accumulator, obj) => {
-      return (accumulator += obj.checked ? obj.quantity * obj.price : 0);
-    }, 0);
-    setTotalCheckedPrice(totalPrice);
-  }, [cartList, totalCheckedPrice]);
-
   //전체 선택
   const isChecked = ({ target: { checked } }) => {
     setAllCheckedBox(checked);
@@ -42,7 +35,6 @@ const Cart = () => {
     let allCheck = true;
     setCartList(oldList => {
       const result = oldList.map(listItem => {
-        console.log(id);
         if (listItem.id === id) {
           listItem.checked = checked;
         }
@@ -92,7 +84,7 @@ const Cart = () => {
         </div>
         <div className="cartBox">
           <div className="cartHeader">
-            <div className="cartHeaderColumn ">
+            <div className="cartHeaderSelectColumn ">
               <input
                 type="checkBox"
                 className="allCheckBox"
@@ -105,7 +97,7 @@ const Cart = () => {
             {HEADER_COLUMN.map(word => {
               return (
                 <div className="cartHeaderColumn" key={word.id}>
-                  <span className="headCflolumnText">{word}</span>
+                  <span className="headCflolumnText">{word.title}</span>
                 </div>
               );
             })}
@@ -132,13 +124,13 @@ const Cart = () => {
             {TOTAL_HEADER.map(word => {
               return (
                 <div className="cartTotalHeaderColumn" key={word.id}>
-                  {word}
+                  {word.title}
                 </div>
               );
             })}
           </div>
           <CartCalculate
-            totalCheckedPrice={totalCheckedPrice}
+            totalCheckedPrice={totalPrice}
             deliveryFee={deliveryFee}
           />
           <div className="orderBox">
@@ -149,5 +141,19 @@ const Cart = () => {
     </div>
   );
 };
+
+const HEADER_COLUMN = [
+  { id: 1, title: '제품 정보' },
+  { id: 2, title: '수량' },
+  { id: 3, title: '배송비' },
+  { id: 4, title: '금액' },
+  { id: 5, title: '삭제' },
+];
+const TOTAL_HEADER = [
+  { id: 1, title: '총 상품가격' },
+  { id: 2, title: '추가 금액' },
+  { id: 3, title: '배송비' },
+  { id: 4, title: '총 결제금액' },
+];
 
 export default Cart;

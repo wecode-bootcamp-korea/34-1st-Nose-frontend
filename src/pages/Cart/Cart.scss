@@ -12,18 +12,21 @@
       margin-bottom: 20px;
     }
     .cartBox {
-      // display: flex;
-      // flex-direction: column;
-      // border-top: 1px solid black;
+      width: 1300px;
       .cartHeader {
         padding: 20px;
         display: flex;
         justify-content: space-evenly;
         border-top: 3px solid black;
+        .cartHeaderSelectColumn {
+          flex: 4;
+        }
         .cartHeaderColumn {
+          flex: 1;
           // font-size: 30px;
           padding-right: 50px;
           padding-left: 50px;
+          text-align: center;
           .headColumnText {
             font-size: 20px;
           }
@@ -43,7 +46,7 @@
         justify-content: space-evenly;
         .whatsInYourCart {
           display: flex;
-          border-top: 1px dotted yellow; // justify-content: space-between;
+          border-top: 1px solid #dedede; // justify-content: space-between;
           .cartItemColumn {
             display: flex;
             margin-right: 80px;
