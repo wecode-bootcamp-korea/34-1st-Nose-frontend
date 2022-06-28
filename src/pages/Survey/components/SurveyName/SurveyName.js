@@ -5,16 +5,12 @@ import './SurveyName.scss';
 
 const SurveyName = () => {
   const [userName, setUserName] = useState('');
-  const location = useLocation();
 
   const inputUserName = e => {
     setUserName(e.target.value);
   };
 
   const navigate = useNavigate();
-  const goToFavoriteScent = () => {
-    navigate(`/Survey/FavoriteScent/`);
-  };
 
   const updateUserName = () => {
     const queryString = `?name=${userName}`;
@@ -40,14 +36,9 @@ const SurveyName = () => {
           <button onClick={goToPreview} className="prevButton">
             이전
           </button>
-          {/* <button onClick={goToFavoriteScent} className="nextButton"> */}
-          {/* <Link
-            to={{ pathname: '/Survey/FavoriteScent', search: `?${userName}` }}
-          > */}
           <button className="nextButton" onClick={() => updateUserName()}>
             다음
           </button>
-          {/* </Link> */}
         </div>
       </div>
     </div>

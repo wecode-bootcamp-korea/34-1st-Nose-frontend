@@ -1,5 +1,4 @@
 import React from 'react';
-import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './FavoriteWord.scss';
 

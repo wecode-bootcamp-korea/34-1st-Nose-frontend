@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import SurveyMain from './components/SurveyMain/SurveyMain';
 import SurveyName from './components/SurveyName/SurveyName';
 import FavoriteScent from './components/FavoriteScent/FavoriteScent';
