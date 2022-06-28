@@ -19,7 +19,7 @@ const Shop = () => {
 
   return (
     <div className="Shop">
-      <div className="categoryWrapper"></div>
+      <div className="categoryWrapper" />
       <div className="perfumeWrapper">
         <PerfumeList perfumes={perfumes} goToDetailPage={goToDetailPage} />
       </div>

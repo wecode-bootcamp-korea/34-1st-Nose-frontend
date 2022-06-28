@@ -28,7 +28,7 @@ const Perfume = ({
         </div>
       </div>
       <div className="addButton">
-        <button />
+        <button className="button">+</button>
       </div>
     </div>
   );
