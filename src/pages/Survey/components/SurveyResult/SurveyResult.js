@@ -4,8 +4,11 @@ import './SurveyResult.scss';
 
 const SurveyResult = () => {
   const [perfumeList, setPerfumeList] = useState([]);
+
   const location = useLocation();
+
   const decodeUri = decodeURI(location.search);
+
   const userName = () => {
     const nameStart = decodeUri.indexOf(`=`);
     return decodeUri.slice(nameStart + 1, nameStart + 4);
@@ -14,6 +17,7 @@ const SurveyResult = () => {
   function randomNumberInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
   const randomNumber = randomNumberInRange(1, 16);
 
   useEffect(() => {
