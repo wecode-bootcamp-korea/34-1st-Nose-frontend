@@ -3,8 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
-  // const [id, setId] = useState('');
-  // const [pw, setPw] = useState('');
   const [userInfo, setUserInfo] = useState({ userId: '', userPw: '' });
   const navigate = useNavigate();
 
@@ -27,17 +25,17 @@ const Login = () => {
         .then(response => response.json())
         .then(result => {
           localStorage.setItem('access_token', result.access_token);
+          navigate('/Login');
         });
     }
-    navigate('/');
   };
 
   return (
     <div className="logIn">
       <form className="loginForm">
         <div className="loginTitle">로그인</div>
-        <div div className="idpwWrapper">
-          <div className="idpwLogin">
+        <div div className="idPwWrapper">
+          <div className="idPwLogin">
             <div className="idWrapper">아이디</div>
             <div className="inputWrapper">
               <input
