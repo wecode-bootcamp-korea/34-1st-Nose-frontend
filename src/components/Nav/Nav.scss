@@ -8,6 +8,7 @@
   width: 100%;
   justify-content: space-around;
   transition: all 0.5s;
+  z-index: 99;
 
   &.changeNav {
     background-color: black;
