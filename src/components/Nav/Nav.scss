@@ -30,20 +30,16 @@
 
   .navCategory {
     display: flex;
+    align-items: flex-end;
 
-    .navText {
-      padding: 0 23px;
-      margin-top: 20px;
-      font-size: 16px;
+    .categoryText {
+      color: black;
+      text-decoration: none;
+      margin-right: 20px;
+    }
 
-      .linkText {
-        color: black;
-        text-decoration: none;
-      }
-
-      .changeLinktagText {
-        color: white;
-      }
+    .changeLinktagText {
+      color: white;
     }
   }
   .navUserIcon {
