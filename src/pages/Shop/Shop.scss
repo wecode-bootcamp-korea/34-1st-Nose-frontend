@@ -1,5 +1,9 @@
-.Shop {
+.shop {
   width: 100%;
+
+  .categoryWrapper {
+    display: flex;
+  }
   .perfumeWrapper {
     .PerfumeList {
       display: flex;
