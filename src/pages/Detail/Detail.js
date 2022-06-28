@@ -26,7 +26,7 @@ const Detail = () => {
 
   const increaseButton = id => {
     setItemInfo(value => {
-      if (value.quantity > 9) {
+      if (value.quantity >= 10) {
         alert('10개가 최대 가능 구입량입니다.');
         value.quantity = 9;
       }
