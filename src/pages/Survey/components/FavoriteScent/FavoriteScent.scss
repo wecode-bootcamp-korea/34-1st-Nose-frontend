@@ -1,0 +1,27 @@
+.FavoriteScent {
+  .favoriteScentContainer {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .favoriteScentText {
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
+    .imgContainer {
+      display: flex;
+      flex-direction: column;
+      margin: 20px;
+      .favoriteImage {
+        width: 280px;
+        height: 100px;
+      }
+      .imgInfo {
+        font-size: 18px;
+      }
+    }
+  }
+}
