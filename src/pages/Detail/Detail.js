@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './Detail.scss';
 
 const Detail = () => {
@@ -11,6 +12,17 @@ const Detail = () => {
       .then(res => res.json())
       .then(result => setItemInfo(result));
   }, []);
+
+  // const postCart = () => {
+  //   fetch('10.58.7.184:8000/products/', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       itemInfo,
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(result => console.log(result));
+  // };
 
   const increaseButton = id => {
     setItemInfo(value => {
@@ -76,7 +88,7 @@ const Detail = () => {
 
           <form className="itemInfo">
             <div className="itemName">{itemInfo.name}</div>
-            <div className="itemPrice">{itemInfo.price.toLocaleString()}원</div>
+            <div className="itemPrice">{itemInfo.price}원</div>
             {/* <div className="itemOption"> */}
 
             <div className="itemSubNameBox">
@@ -106,14 +118,12 @@ const Detail = () => {
                   </button>
                 </div>
               </div>
-              <div className="itemSubPrice">
-                {itemInfo.price.toLocaleString()}원
-              </div>
+              <div className="itemSubPrice">{itemInfo.price}원</div>
             </div>
             <div className="totalPriceBox">
               <div className="totalPrice"> 총 상품 금액</div>
               <div className="realPrice">
-                {(itemInfo.price * itemInfo.quantity).toLocaleString()}원
+                {itemInfo.price * itemInfo.quantity}원
               </div>
             </div>
             <div className="cartButtonBox">장바구니에 담기</div>
@@ -121,7 +131,26 @@ const Detail = () => {
           </form>
         </div>
         <div className="itemDescriptionReviewBox">
-          <div className="detailInfo">상세정보</div>
+          <div className="detailInfo">
+            <div className="titleDescription">
+              <span className="titleSpan">상세 페이지</span>
+            </div>
+            <div className="detailImg">
+              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
+            </div>
+            <div className="detailImg">
+              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
+            </div>
+            <div className="detailImg">
+              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
+            </div>
+            <div className="detailImg">
+              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
+            </div>
+            <div className="detailImg">
+              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
+            </div>
+          </div>
           <div className="detailReview">리뷰</div>
         </div>
       </div>

@@ -23,11 +23,11 @@ div {
       background-color: #ffff;
       display: flex;
       margin-bottom: 138px;
+      justify-content: center;
       .sliderArea {
         position: relative;
         width: 400px;
         height: 700px;
-        margin-left: 400px;
         overflow-x: hidden;
         // background-color: blue;
         .sliderBox {
@@ -39,16 +39,17 @@ div {
             left: 50%;
             top: 50%;
             display: flex;
-            overflow-x: hidden;
+            // overflow-x: hidden;
+            overflow: hidden;
             transform: translateX(0);
             // transition-delay: 2s;
             // margin-left: 150px;
-            transition-duration: 1.5s;
+            transition-duration: 1s;
             .imgList {
               list-style: none;
               .img {
                 width: 400px;
-                height: 680px;
+                height: 690px;
                 // border: 15px solid yellow;
               }
             }
@@ -124,6 +125,7 @@ div {
         }
         .totalPriceBox {
           padding: 24px 0px;
+          border-bottom: 1px dotted black;
           .totalPrice {
             font-size: 230x;
             display: flex;
@@ -134,6 +136,7 @@ div {
             display: flex;
             justify-content: flex-end;
           }
+          margin-bottom: 40px;
         }
         .cartButtonBox {
           text-align: center;
@@ -153,6 +156,21 @@ div {
           margin-bottom: 10px;
           padding: 10px;
         }
+      }
+    }
+  }
+  .itemDescriptionReviewBox {
+    .detailInfo {
+      .titleDescription {
+        text-align: center;
+        margin-bottom: 10px;
+        .titleSpan {
+          font-size: 25px;
+          border-bottom: 1px solid black;
+        }
+      }
+      .detailImg {
+        text-align: center;
       }
     }
   }
