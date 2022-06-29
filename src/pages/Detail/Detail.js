@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
 import './Detail.scss';
 
@@ -6,6 +7,7 @@ const Detail = () => {
   const [itemInfo, setItemInfo] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const slides = itemInfo.thumbnail_img;
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('data/detailItem.json', { method: 'GET' })
@@ -13,16 +15,17 @@ const Detail = () => {
       .then(result => setItemInfo(result));
   }, []);
 
-  // const postCart = () => {
-  //   fetch('10.58.7.184:8000/products/', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       itemInfo,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => console.log(result));
-  // };
+  const postCart = () => {
+    fetch('http://10.58.1.167:8000/carts', {
+      method: 'POST',
+      body: JSON.stringify({
+        product_id: itemInfo.id,
+        quantity: itemInfo.quantity,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => navigate('/cart'));
+  };
 
   const increaseButton = id => {
     setItemInfo(value => {
@@ -126,7 +129,9 @@ const Detail = () => {
                 {itemInfo.price * itemInfo.quantity}원
               </div>
             </div>
-            <div className="cartButtonBox">장바구니에 담기</div>
+            <div className="cartButtonBox" onClick={postCart}>
+              장바구니에 담기
+            </div>
             <div className="myFavCart">나만의 카트 만들기</div>
           </form>
         </div>
