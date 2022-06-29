@@ -11,7 +11,6 @@ const CartList = ({
   return (
     <div>
       <li key={listItem.id} className="whatsInYourCart">
-        {/* {setQuantity(value.quantity)} */}
         <div className="cartItemColumn itemHead">
           <input
             type="checkBox"
@@ -33,7 +32,7 @@ const CartList = ({
             <button
               type="button"
               className="decreaseButton"
-              onClick={e => {
+              onClick={() => {
                 minusOneQuantity(listItem.id);
               }}
             >
@@ -43,7 +42,7 @@ const CartList = ({
             <button
               type="button"
               className="increaseButton"
-              onClick={e => {
+              onClick={() => {
                 plusOneQuantity(listItem.id);
               }}
             >
@@ -62,7 +61,7 @@ const CartList = ({
         <div className="cartItemColumn itemBody">
           <button
             className="cartItemDeleteButton"
-            onClick={e => {
+            onClick={() => {
               deleteList(listItem.id);
             }}
           >

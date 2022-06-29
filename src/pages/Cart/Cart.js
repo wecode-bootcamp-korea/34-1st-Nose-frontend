@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import CartCalculate from './component/CartCalculate';
 import CartList from './component/CartList';
 import './Cart.scss';
 
@@ -12,9 +11,9 @@ const Cart = () => {
   let deliveryFee = totalPrice >= 30000 ? 0 : 2500;
 
   useEffect(() => {
-    fetch('data/itemData.json')
+    fetch('http://10.58.1.167:8000/carts', { method: 'GET' })
       .then(res => res.json())
-      .then(res => setCartList(res));
+      .then(res => setCartList(res.results));
   }, []);
 
   const isChecked = ({ target: { checked } }) => {
@@ -126,10 +125,21 @@ const Cart = () => {
               );
             })}
           </div>
-          <CartCalculate
-            totalCheckedPrice={totalPrice}
-            deliveryFee={deliveryFee}
-          />
+          <div className="priceBox">
+            <div className="cartPriceColumn">
+              {totalPrice.toLocaleString()}원
+            </div>
+            <div className="cartPriceColumn">+</div>
+            <div className="cartPriceColumn">0원</div>
+            <div className="cartPriceColumn">+</div>
+            <div className="cartPriceColumn">
+              {deliveryFee.toLocaleString()}원
+            </div>
+            <div className="cartPriceColumn">=</div>
+            <div className="cartPriceColumn">
+              {(totalPrice + deliveryFee).toLocaleString()}원
+            </div>
+          </div>
           <div className="orderBox">주문하기</div>
         </div>
       </div>
