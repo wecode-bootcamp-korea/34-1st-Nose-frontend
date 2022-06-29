@@ -5,31 +5,28 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
-  // const [totalCheckedPrice, setTotalCheckedPrice] = useState(0);
   const [allcheckedBox, setAllCheckedBox] = useState(false);
   const totalPrice = cartList.reduce((accumulator, obj) => {
     return (accumulator += obj.checked ? obj.quantity * obj.price : 0);
   }, 0);
   let deliveryFee = totalPrice >= 30000 ? 0 : 2500;
 
-  //mock data 받아오기
   useEffect(() => {
     fetch('data/itemData.json')
       .then(res => res.json())
       .then(res => setCartList(res));
   }, []);
-  //전체 선택
+
   const isChecked = ({ target: { checked } }) => {
     setAllCheckedBox(checked);
     setCartList(oldList => {
-      //oldList 기존에 있는 배열 값
       return oldList.map(listItem => {
         listItem.checked = checked;
         return listItem;
       });
     });
   };
-  //리스트 선택
+
   const isListChecked = (e, id) => {
     const { checked } = e.target;
     let allCheck = true;
@@ -97,7 +94,7 @@ const Cart = () => {
             {HEADER_COLUMN.map(word => {
               return (
                 <div className="cartHeaderColumn" key={word.id}>
-                  <span className="headCflolumnText">{word.title}</span>
+                  <span className="headColumnText">{word.title}</span>
                 </div>
               );
             })}
@@ -133,9 +130,7 @@ const Cart = () => {
             totalCheckedPrice={totalPrice}
             deliveryFee={deliveryFee}
           />
-          <div className="orderBox">
-            <button className="orderButton">주문하기</button>
-          </div>
+          <div className="orderBox">주문하기</div>
         </div>
       </div>
     </div>
