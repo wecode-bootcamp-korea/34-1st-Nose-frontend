@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Main.scss';
+import MainCarousel from './components/MainCarousel';
 
 const Main = () => {
   return (
     <div className="main">
+      <MainCarousel />
       {CONTAINERDATA.map((data, idx) => {
         return (
           <div className={data.className} key={data.id}>
@@ -84,14 +86,6 @@ const INFOBOXIMG = [
 const CONTAINERDATA = [
   {
     id: 1,
-    className: 'changeSignature',
-    prefixText: '6가지 향기 담아보기',
-    suffixText: '새로운 계절, 새로운 향기',
-    linkTo: '/Shop',
-    buttonText: '나만의 향기 담기',
-  },
-  {
-    id: 2,
     className: 'perfumeTeller',
     prefixText: 'Perfume Teller',
     suffixText: '재미있는 향기 취향 테스트로 나만의 #시그니처향수 찾기',
@@ -99,7 +93,7 @@ const CONTAINERDATA = [
     buttonText: '바로가기',
   },
   {
-    id: 3,
+    id: 2,
     className: 'discoverySet',
     prefixText: 'Discovery Set',
     suffixText: '오늘, 나와 어울리는 향기를 위한 나만의 디스커버리 세트',

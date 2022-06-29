@@ -1,0 +1,106 @@
+.mainCarousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  .carouselContainer {
+    width: 200%;
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    // transform: translateX(-200vw);
+
+    .imgHandle {
+      width: 100%;
+      .changeSignature {
+        position: relative;
+        height: 900px;
+        background: url('../../../assets/images/main/change_signature.jpg');
+        background-size: cover;
+
+        .textContent {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          transform: translate(-50%, -50%);
+
+          .prefixTitle {
+            font-size: 30px;
+          }
+
+          .suffixTitle {
+            margin: 20px;
+            font-size: 50px;
+          }
+
+          .pageChangeButton {
+            margin-top: 100px;
+            width: 300px;
+            height: 60px;
+            font-size: 20px;
+            background-color: transparent;
+            border-color: white;
+            color: white;
+
+            &:hover {
+              background-color: black;
+            }
+          }
+        }
+      }
+      .choseYours {
+        position: relative;
+        height: 900px;
+        background: url('../../../assets/images/main/choseYours.jpg');
+        background-size: cover;
+
+        .textContent {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          transform: translate(-50%, -50%);
+
+          .prefixTitle {
+            font-size: 30px;
+          }
+
+          .suffixTitle {
+            margin: 20px;
+            font-size: 50px;
+          }
+
+          .pageChangeButton {
+            margin-top: 100px;
+            width: 300px;
+            height: 60px;
+            font-size: 20px;
+            background-color: transparent;
+            border-color: white;
+            color: white;
+
+            &:hover {
+              background-color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+  .buttonContainer {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    bottom: 400px;
+    width: 100%;
+    z-index: 2;
+
+    .nextButton {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
