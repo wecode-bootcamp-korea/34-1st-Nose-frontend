@@ -1,4 +1,4 @@
-.FavoriteScent {
+.favoriteScent {
   .favoriteScentContainer {
     width: 100%;
     height: 600px;
@@ -18,6 +18,7 @@
       .favoriteImage {
         width: 280px;
         height: 100px;
+        cursor: pointer;
       }
       .imgInfo {
         font-size: 18px;

@@ -15,7 +15,7 @@ const Survey = () => {
       <Route path="DislikeScent" element={<DislikeScent />} />
       <Route path="FavoriteScent" element={<FavoriteScent />} />
       <Route path="FavoriteWord" element={<FavoriteWord />} />
-      <Route path="SurveyName/" element={<SurveyName />} />
+      <Route path="SurveyName" element={<SurveyName />} />
       <Route path="SurveyResult" element={<SurveyResult />} />
     </Routes>
   );

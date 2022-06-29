@@ -22,8 +22,8 @@ const SurveyName = () => {
   };
 
   return (
-    <div className="SurveyName">
-      <div className="surveyNameTextContainer">
+    <div className="surveyName">
+      <form className="surveyNameTextContainer">
         <div className="surveyMainText">
           <div>퍼퓸텔러가</div> 회원님을 어떻게 부르면 좋을까요?
         </div>
@@ -33,14 +33,18 @@ const SurveyName = () => {
           placeholder="이름"
         />
         <div className="buttonContainer">
-          <button onClick={goToPreview} className="prevButton">
+          <button type="button" onClick={goToPreview} className="prevButton">
             이전
           </button>
-          <button className="nextButton" onClick={() => updateUserName()}>
+          <button
+            type="submit"
+            className="nextButton"
+            onClick={() => updateUserName()}
+          >
             다음
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

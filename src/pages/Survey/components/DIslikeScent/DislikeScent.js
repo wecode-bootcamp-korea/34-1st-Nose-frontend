@@ -7,20 +7,12 @@ const DislikeScent = () => {
   const decodeUri = decodeURI(location.search);
   const navigate = useNavigate();
 
-  const goToSurveyResultWater = () => {
-    navigate(`/Survey/SurveyResult/${decodeUri}&Water`);
+  const goToSurveyResult = scent => {
+    navigate(`/Survey/SurveyResult/${decodeUri}&${scent}`);
   };
-  const goToSurveyResultFruit = () => {
-    navigate(`/Survey/SurveyResult/${decodeUri}&Fruit`);
-  };
-  const goToSurveyResultCinnamon = () => {
-    navigate(`/Survey/SurveyResult/${decodeUri}&Cinnamon`);
-  };
-  const goToSurveyResultVanilla = () => {
-    navigate(`/Survey/SurveyResult/${decodeUri}&Vanilla`);
-  };
+
   return (
-    <div className="DislikeScent">
+    <div className="dislikeScent">
       <div className="dislikeContainer">
         <div className="dislikeTitle">싫어하는 느낌의 향기를 골라주세요</div>
         <div className="dislikeBox">
@@ -28,7 +20,8 @@ const DislikeScent = () => {
             <img
               src="/images/survey/survey_water.jpg"
               alt="survey_water"
-              onClick={goToSurveyResultWater}
+              name="Water"
+              onClick={() => goToSurveyResult('Water')}
               className="dislikeImage"
             />
             <div className="imgSubtitle">강, 바다, 수영장의</div>
@@ -39,7 +32,8 @@ const DislikeScent = () => {
               <img
                 src="/images/survey/survey_fruit.jpg"
                 alt="survey_fruit"
-                onClick={goToSurveyResultFruit}
+                name="Fruit"
+                onClick={() => goToSurveyResult('Fruit')}
                 className="dislikeImage"
               />
             </div>
@@ -50,7 +44,8 @@ const DislikeScent = () => {
             <img
               src="/images/survey/survey_cinnamon.jpg"
               alt="survey_cinnamon"
-              onClick={goToSurveyResultCinnamon}
+              name="Cinnamon"
+              onClick={() => goToSurveyResult('Cinnamon')}
               className="dislikeImage"
             />
             <div className="imgSubtitle">코끝을 톡 건드리는</div>
@@ -60,7 +55,7 @@ const DislikeScent = () => {
             <img
               src="/images/survey/survey_vanilla.jpg"
               alt="survey_vanilla"
-              onClick={goToSurveyResultVanilla}
+              onClick={() => goToSurveyResult('Vanilla')}
               className="dislikeImage"
             />
             <div className="imgSubtitle">달짝지근한</div>

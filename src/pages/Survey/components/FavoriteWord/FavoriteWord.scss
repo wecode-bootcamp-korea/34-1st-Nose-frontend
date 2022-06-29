@@ -1,4 +1,4 @@
-.FavoriteWord {
+.favoriteWord {
   .favoriteWordContainer {
     display: flex;
     flex-direction: column;
@@ -19,6 +19,7 @@
         background-color: rgb(235, 235, 235);
         margin-top: 20px;
         border: none;
+        cursor: pointer;
 
         &:hover {
           background-color: black;

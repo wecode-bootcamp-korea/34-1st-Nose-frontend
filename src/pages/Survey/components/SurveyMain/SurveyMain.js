@@ -8,21 +8,8 @@ const Surveymain = () => {
     navigate(`SurveyName`);
   };
 
-  // const goToMonsterList = () => {
-  //   navigate(`/monsters`);
-  // };
-
-  const buttonColorHandle = e => {
-    e.target.style.color = 'white';
-    e.target.style.backgroundColor = 'black';
-  };
-  const buttonDefaultHandle = e => {
-    e.target.style.color = 'black';
-    e.target.style.backgroundColor = 'transparent';
-  };
-
   return (
-    <div className="Survey">
+    <div className="survey">
       <div className="surveyMainContainer">
         <div className="surveyBackground">
           <div className="surveyMainTextContainer">
@@ -38,12 +25,7 @@ const Surveymain = () => {
                 <div> 실패없는 취향저격 향기들을 만나보세요</div>
               </div>
             </div>
-            <button
-              onMouseOver={e => buttonColorHandle(e)}
-              onMouseLeave={e => buttonDefaultHandle(e)}
-              onClick={goToSurveyName}
-              className="startButton"
-            >
+            <button onClick={goToSurveyName} className="startButton">
               START
             </button>
           </div>
