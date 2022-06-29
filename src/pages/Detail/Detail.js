@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './Detail.scss';
 
 const Detail = () => {
@@ -8,7 +8,9 @@ const Detail = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slides = itemInfo.thumbnail_img;
   const navigate = useNavigate();
+  const params = useParams();
 
+  //TODO 'API'/products/ ${params.id}
   useEffect(() => {
     fetch('data/detailItem.json', { method: 'GET' })
       .then(res => res.json())
