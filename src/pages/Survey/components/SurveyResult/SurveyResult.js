@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './SurveyResult.scss';
 
 const SurveyResult = () => {
@@ -9,9 +9,17 @@ const SurveyResult = () => {
 
   const decodeUri = decodeURI(location.search);
 
+  const navigate = useNavigate();
+
   const userName = () => {
     const nameStart = decodeUri.indexOf(`=`);
-    return decodeUri.slice(nameStart + 1, nameStart + 4);
+    const nameEnd = decodeUri.indexOf('&');
+    const name = decodeUri.slice(nameStart + 1, nameEnd);
+    let result;
+    if (name.length < 2) {
+      return (result = '회원');
+    } else return (result = name);
+    return result;
   };
 
   function randomNumberInRange(min, max) {
@@ -29,6 +37,14 @@ const SurveyResult = () => {
   const perfume = perfumeList[randomNumber];
 
   const detailUrl = `/detail/${randomNumber}`;
+
+  const goToSurveyMainPage = () => {
+    navigate('/Survey');
+  };
+
+  const goToDetailPage = () => {
+    navigate(detailUrl);
+  };
 
   return (
     <div className="SurveyResult">
@@ -82,8 +98,12 @@ const SurveyResult = () => {
           </div>
           <div className="resultFooter">
             <div className="buttonContainer">
-              <button className="goToSurveyButton">다시하기</button>
-              <button className="goToDetailPage">향수보러가기</button>
+              <button className="goToSurveyButton" onClick={goToSurveyMainPage}>
+                다시하기
+              </button>
+              <button className="goToDetailPage" onClick={goToDetailPage}>
+                향수보러가기
+              </button>
             </div>
           </div>
         </div>
