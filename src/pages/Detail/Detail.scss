@@ -1,0 +1,184 @@
+@mixin btn {
+  z-index: 100;
+  width: 55px;
+  height: 55px;
+  opacity: 0.7;
+  background-size: 25px;
+}
+div {
+  display: block;
+}
+.detailContainer {
+  background-color: #ffff;
+  padding: 86px 0px 130px;
+  margin: 0px;
+  .topDiscoveryPage {
+    padding: 0px 32px;
+    width: 100%;
+  }
+  .contentBox {
+    background-color: #ffff;
+    .itemPage {
+      background-color: #ffff;
+      display: flex;
+      margin-bottom: 138px;
+      justify-content: center;
+      .sliderArea {
+        position: relative;
+        width: 400px;
+        height: 700px;
+        overflow-x: hidden;
+        // background-color: blue;
+        .sliderBox {
+          position: relative;
+          // transition: transform 1.5s ease-in;
+          // transform: {${props => 'translateY(-'} + props.count *120 + 'px)';`}
+          .sliderTrack {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            display: flex;
+            // overflow-x: hidden;
+            overflow: hidden;
+            transform: translateX(0);
+            // transition-delay: 2s;
+            // margin-left: 150px;
+            transition-duration: 1s;
+            .imgList {
+              list-style: none;
+              .img {
+                width: 400px;
+                height: 690px;
+                // border: 15px solid yellow;
+              }
+            }
+          }
+        }
+        .spanPrev {
+          position: absolute;
+          left: 0%;
+          top: 45%;
+          background: url('../../assets/images/detailPage/leftnext.png')
+            no-repeat center;
+          @include btn;
+        }
+        .spanNext {
+          position: absolute;
+          right: 0;
+          top: 45%;
+          background: url('../../assets/images/detailPage/rightnext.png')
+            no-repeat center;
+          @include btn;
+        }
+      }
+      .itemInfo {
+        margin: 0px 0px 0px 190px;
+        width: 500px;
+        .itemName {
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 1.5em;
+          margin-top: -6px;
+        }
+        .itemPrice {
+          margin-top: 24px;
+          font-weight: bold;
+          padding-top: 3px;
+          padding-bottom: 30px;
+        }
+        .itemSubNameBox {
+          border-top: 1px solid #696969;
+          border-bottom: 1px solid #696969;
+          padding: 38px 12px;
+          background-color: #ffff;
+          font-weight: lighter;
+          display: flex;
+          justify-content: space-between;
+          .itemSubName {
+            .amountBigBox {
+              display: flex;
+              flex-direction: column;
+              // text-align: right;
+              .amountButtonBox {
+                border: 1px solid black;
+                display: flex;
+                .decreaseButton {
+                  font-size: 10px;
+                }
+                .itemAmount {
+                  border: none;
+                  font-size: 17px;
+                  padding: 20px;
+                }
+                .increaseButton {
+                  font-size: 10px;
+                }
+              }
+              .itemSubPrice {
+                width: 85px;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        .totalPriceBox {
+          padding: 24px 0px;
+          border-bottom: 1px dotted black;
+          .totalPrice {
+            font-size: 230x;
+            display: flex;
+            // justify-content: space-between;
+          }
+          .realPrice {
+            font-size: 18px;
+            display: flex;
+            justify-content: flex-end;
+          }
+          margin-bottom: 40px;
+        }
+        .cartButtonBox {
+          text-align: center;
+          color: black;
+          font-size: 18px;
+          font-weight: bold;
+          border: 2px solid gray;
+          margin-bottom: 10px;
+          padding: 10px;
+        }
+        .myFavCart {
+          text-align: center;
+          color: white;
+          font-size: 18px;
+          border: 3px solid gray;
+          background-color: black;
+          margin-bottom: 10px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+  .itemDescriptionReviewBox {
+    .detailInfo {
+      .titleDescription {
+        text-align: center;
+        margin-bottom: 10px;
+        .titleSpan {
+          font-size: 25px;
+          border-bottom: 1px solid black;
+        }
+      }
+      .detailImgContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+      }
+      .detailImg {
+        text-align: center;
+        width: 770px;
+        height: 770px;
+        padding: 21px;
+      }
+    }
+  }
+}
