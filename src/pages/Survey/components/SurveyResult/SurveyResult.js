@@ -18,7 +18,7 @@ const SurveyResult = () => {
     let result;
     if (name.length < 2) {
       return (result = '회원');
-    } else return (result = name);
+    } else result = name;
     return result;
   };
 
