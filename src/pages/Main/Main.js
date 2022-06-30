@@ -44,7 +44,7 @@ const Main = () => {
       </div>
       <div className="lastContainer">
         <div>
-          <div className="suffixTitle">instagram @paffem</div>
+          <div className="suffixTitle">instagram @ NOŚE</div>
         </div>
       </div>
     </div>
