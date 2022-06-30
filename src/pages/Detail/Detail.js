@@ -4,11 +4,12 @@ import { useParams } from 'react-router-dom';
 import './Detail.scss';
 
 const Detail = () => {
+  const navigate = useNavigate();
+  const params = useParams();
+
   const [itemInfo, setItemInfo] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const slides = itemInfo.thumbnail_img;
-  const navigate = useNavigate();
-  const params = useParams();
 
   //TODO 'API'/products/ ${params.id}
   useEffect(() => {
@@ -26,10 +27,13 @@ const Detail = () => {
       }),
     })
       .then(res => res.json())
-      .then(result => navigate('/cart'));
+      .then(result => {
+        if (result.message === 'SUCCESS') navigate('/cart');
+        else alert(result.message);
+      });
   };
 
-  const increaseButton = id => {
+  const increaseButton = () => {
     setItemInfo(value => {
       if (value.quantity >= 10) {
         alert('10개가 최대 가능 구입량입니다.');
@@ -38,7 +42,7 @@ const Detail = () => {
       return { ...value, quantity: value.quantity + 1 };
     });
   };
-  const decreaseButton = id => {
+  const decreaseButton = () => {
     setItemInfo(value => {
       if (value.quantity > 1) {
         return { ...value, quantity: value.quantity - 1 };
@@ -93,8 +97,9 @@ const Detail = () => {
 
           <form className="itemInfo">
             <div className="itemName">{itemInfo.name}</div>
-            <div className="itemPrice">{itemInfo.price}원</div>
-            {/* <div className="itemOption"> */}
+            <div className="itemPrice">
+              {itemInfo.price?.toLocaleString()}원
+            </div>
 
             <div className="itemSubNameBox">
               <div className="itemSubName">{itemInfo.name}</div>
@@ -104,7 +109,7 @@ const Detail = () => {
                     type="button"
                     className="decreaseButton"
                     onClick={() => {
-                      decreaseButton(itemInfo.id);
+                      decreaseButton();
                     }}
                   >
                     {' '}
@@ -115,7 +120,7 @@ const Detail = () => {
                     type="button"
                     className="increaseButton"
                     onClick={() => {
-                      increaseButton(itemInfo.id);
+                      increaseButton();
                     }}
                   >
                     {' '}
@@ -123,12 +128,14 @@ const Detail = () => {
                   </button>
                 </div>
               </div>
-              <div className="itemSubPrice">{itemInfo.price}원</div>
+              <div className="itemSubPrice">
+                {itemInfo.price?.toLocaleString()}원
+              </div>
             </div>
             <div className="totalPriceBox">
               <div className="totalPrice"> 총 상품 금액</div>
               <div className="realPrice">
-                {itemInfo.price * itemInfo.quantity}원
+                {(itemInfo.price * itemInfo.quantity)?.toLocaleString()} 원
               </div>
             </div>
             <div className="cartButtonBox" onClick={postCart}>
@@ -142,27 +149,36 @@ const Detail = () => {
             <div className="titleDescription">
               <span className="titleSpan">상세 페이지</span>
             </div>
-            <div className="detailImg">
-              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
+            {/* todo map 처리 */}
+            <div className="detailImageContainer">
+              {DETAIL_IMAGE.map(imageSrc => {
+                return (
+                  <div key={imageSrc.id}>
+                    <img
+                      key={imageSrc.id}
+                      src={imageSrc.src}
+                      alt="nose 이미지"
+                      className="detailImg"
+                      style={{ maxWidth: 800, margin: 20 }}
+                    />
+                  </div>
+                );
+              })}
             </div>
-            <div className="detailImg">
-              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
-            </div>
-            <div className="detailImg">
-              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
-            </div>
-            <div className="detailImg">
-              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
-            </div>
-            <div className="detailImg">
-              <img src="\images\detailPage\nosé.png" alt="nose 이미지" />
-            </div>
+            <div className="detailReview">리뷰</div>
           </div>
-          <div className="detailReview">리뷰</div>
         </div>
       </div>
     </div>
   );
 };
 
+const DETAIL_IMAGE = [
+  { id: 1, src: '/images/detailPage/nosé.png' },
+  { id: 2, src: '/images/detailPage/bubble.jpeg' },
+  { id: 3, src: '/images/detailPage/feeling.jpeg' },
+  { id: 4, src: '/images/detailPage/home.jpeg' },
+  { id: 5, src: '/images/detailPage/item.jpeg' },
+  { id: 6, src: '/images/detailPage/night.jpeg' },
+];
 export default Detail;

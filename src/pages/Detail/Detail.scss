@@ -29,28 +29,24 @@ div {
         width: 400px;
         height: 700px;
         overflow-x: hidden;
-        // background-color: blue;
+
         .sliderBox {
           position: relative;
-          // transition: transform 1.5s ease-in;
-          // transform: {${props => 'translateY(-'} + props.count *120 + 'px)';`}
+
           .sliderTrack {
             position: absolute;
             left: 50%;
             top: 50%;
             display: flex;
-            // overflow-x: hidden;
+
             overflow: hidden;
             transform: translateX(0);
-            // transition-delay: 2s;
-            // margin-left: 150px;
+
             transition-duration: 1s;
             .imgList {
               list-style: none;
               .img {
                 width: 400px;
-                height: 690px;
-                // border: 15px solid yellow;
               }
             }
           }
@@ -101,8 +97,7 @@ div {
           .itemSubName {
             .amountBigBox {
               display: flex;
-              flex-direction: column;
-              // text-align: right;
+
               .amountButtonBox {
                 border: 1px solid black;
                 display: flex;
@@ -131,7 +126,6 @@ div {
           .totalPrice {
             font-size: 230x;
             display: flex;
-            // justify-content: space-between;
           }
           .realPrice {
             font-size: 18px;
@@ -162,7 +156,11 @@ div {
     }
   }
   .itemDescriptionReviewBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     .detailInfo {
+      padding: 40px;
       .titleDescription {
         text-align: center;
         margin-bottom: 10px;
@@ -171,8 +169,14 @@ div {
           border-bottom: 1px solid black;
         }
       }
-      .detailImg {
+      .detailImageContainer {
+        width: 100%;
         text-align: center;
+
+        .detailImage {
+          max-width: 100%;
+          height: auto;
+        }
       }
     }
   }
