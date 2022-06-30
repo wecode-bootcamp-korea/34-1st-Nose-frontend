@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Detail.scss';
-
 const Detail = () => {
   const navigate = useNavigate();
 

@@ -1,0 +1,31 @@
+.favoriteWord {
+  .favoriteWordContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 600px;
+    .favoriteWordTitle {
+      font-size: 18px;
+    }
+    .imgContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      .text {
+        width: 280px;
+        height: 50px;
+        background-color: rgb(235, 235, 235);
+        margin-top: 20px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+  }
+}

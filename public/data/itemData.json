@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "itemName": "구름빛 향기",
+    "price": 20000,
+    "thumbnail_img": "//paffem.me/web/product/tiny/202012/c6dea5a4cf8b362090acbdd2af2873fe.jpg",
+    "quantity": 2,
+    "checked": false
+  },
+  {
+    "id": 2,
+    "itemName": "장미빛 구름",
+    "price": 22000,
+    "thumbnail_img": "//paffem.me/web/product/tiny/202111/96000cd36cef4c7a4949a4b25da95dac.png",
+    "quantity": 1,
+    "checked": false
+  },
+  {
+    "id": 3,
+    "itemName": "딥워터",
+    "price": 23000,
+    "thumbnail_img": "//paffem.me/web/product/big/202012/2f5434ad3a05add1930e372620650a40.jpg",
+    "quantity": 2,
+    "checked": false
+  }
+]

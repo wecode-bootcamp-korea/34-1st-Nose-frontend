@@ -1,0 +1,118 @@
+.cartPageBody {
+  padding-top: 100px;
+  padding-bottom: 200px;
+  background-color: whitesmoke;
+  .cartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .cartText {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    .cartBox {
+      width: 1300px;
+      .cartHeader {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        border-top: 3px solid black;
+        .cartHeaderSelectColumn {
+          width: 280px;
+        }
+        .cartHeaderColumn {
+          padding-right: 10px;
+          text-align: center;
+          .headColumnText {
+            font-size: 15px;
+          }
+          .selectAll {
+            font-size: 15px;
+            font-weight: bold;
+          }
+          .deleteSelected {
+            font-size: 15px;
+            font-weight: bold;
+          }
+        }
+      }
+      .cartItem {
+        display: flex;
+        border-top: 1px solid black;
+        .whatsInYourCart {
+          display: flex;
+          border-top: 1px solid #dedede;
+          width: 1300px;
+          justify-content: space-between;
+          .cartItemColumn {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            .cartItemDeleteButton {
+              border: none;
+              border: 1px dotted gray;
+            }
+            .deliveryPrice {
+              width: auto;
+            }
+            .amountButtonBox {
+              width: 80px;
+              height: 50px;
+              align-items: center;
+              border: 1px solid lightgray;
+              display: flex;
+              justify-content: space-between;
+              button {
+                border: none;
+                font-size: 20px;
+                height: 45px;
+              }
+              span {
+                font-size: 15px;
+                font-weight: bold;
+              }
+            }
+            .itemName {
+              display: flex;
+              flex-direction: column;
+              .itenMainName {
+                font-weight: bolder;
+              }
+            }
+            .itemImage {
+              width: 220px;
+              height: 300px;
+            }
+          }
+        }
+      }
+      .cartTotalHeader {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid black;
+        padding: 20px;
+        .cartTotalHeaderColumn {
+          padding: 10px;
+        }
+      }
+      .priceBox {
+        display: flex;
+        justify-content: space-evenly;
+        border-top: 1px solid black;
+        padding: 10px;
+        border-bottom: 1px solid black;
+        .cartPriceColumn {
+          padding: 10px;
+        }
+      }
+      .orderBox {
+        text-align: center;
+        background-color: lightgoldenrodyellow;
+        padding: 15px;
+        border: 3px solid black;
+        margin-top: 30px;
+      }
+    }
+  }
+}
