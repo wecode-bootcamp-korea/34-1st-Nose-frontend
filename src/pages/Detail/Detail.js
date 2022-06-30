@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 import './Detail.scss';
 
 const Detail = () => {
   const navigate = useNavigate();
-  const params = useParams();
 
   const [itemInfo, setItemInfo] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
