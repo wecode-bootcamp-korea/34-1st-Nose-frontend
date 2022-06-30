@@ -19,7 +19,11 @@ const CartList = ({
             }}
             checked={listItem.checked}
           />
-          <img className="itemImage" src={listItem.imageUrl} alt="상품사진" />
+          <img
+            className="itemImage"
+            src={listItem.thumbnail_img}
+            alt="상품사진"
+          />
         </div>
         <div className="cartItemColumn itemBody">
           <div className="itemName">
@@ -62,7 +66,7 @@ const CartList = ({
           <button
             className="cartItemDeleteButton"
             onClick={() => {
-              deleteList(listItem.id);
+              deleteList(listItem.cart_id);
             }}
           >
             x
