@@ -3,6 +3,15 @@
 
   .categoryWrapper {
     display: flex;
+    width: 60%;
+
+    .categories {
+      display: flex;
+
+      .singleCategory {
+        padding: 20px;
+      }
+    }
   }
   .perfumeWrapper {
     .PerfumeList {

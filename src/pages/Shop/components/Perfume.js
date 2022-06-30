@@ -1,18 +1,10 @@
 import React from 'react';
-
+import { useParams } from 'react-router-dom';
 import './Perfume.scss';
 
-const Perfume = ({
-  key,
-  id,
-  name,
-  price,
-  thumbnail_img,
-  tags,
-  goToDetailPage,
-}) => {
+const Perfume = ({ id, name, price, thumbnail_img, tags, goToDetailPage }) => {
   return (
-    <div className="perfumeBox" onClick={goToDetailPage}>
+    <div className="perfumeBox" key={id} onClick={() => goToDetailPage(id)}>
       <div className="perfumeImg">
         <img src={thumbnail_img} className="perfumeImg" alt="perfume" />
       </div>

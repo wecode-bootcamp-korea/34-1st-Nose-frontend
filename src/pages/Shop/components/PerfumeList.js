@@ -7,7 +7,6 @@ const PerfumeList = ({ perfumes, goToDetailPage }) => {
       {perfumes.map(perfume => {
         return (
           <Perfume
-            key={perfume.product_id}
             id={perfume.product_id}
             name={perfume.name}
             price={perfume.price}
