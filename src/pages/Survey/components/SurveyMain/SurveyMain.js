@@ -1,11 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import surveyNavigateUrl from '../../surveyConfig';
 import './SurveyMain.scss';
 
 const Surveymain = () => {
   const navigate = useNavigate();
   const goToSurveyName = () => {
-    navigate(`SurveyName`);
+    navigate(surveyNavigateUrl.SurveyMain);
   };
 
   return (

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import surveyNavigateUrl from '../../surveyConfig';
 import './SurveyResult.scss';
 
 const SurveyResult = () => {
@@ -18,8 +19,7 @@ const SurveyResult = () => {
   function randomNumberInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-
-  const randomNumber = randomNumberInRange(1, perfumeList.length);
+  const randomNumber = randomNumberInRange(0, perfumeList.length - 1);
 
   useEffect(() => {
     fetch('/data/perfume_list.json')
@@ -28,13 +28,12 @@ const SurveyResult = () => {
   }, []);
 
   const perfume = perfumeList[randomNumber];
-
   if (!perfume) return;
 
   const detailUrl = `/detail/${randomNumber}`;
 
   const goToSurveyMainPage = () => {
-    navigate('/Survey');
+    navigate(`${surveyNavigateUrl.Survey}`);
   };
 
   const goToDetailPage = () => {

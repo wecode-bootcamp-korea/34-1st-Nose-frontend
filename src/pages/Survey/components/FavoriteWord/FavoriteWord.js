@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import surveyNavigateUrl from '../../surveyConfig';
 import './FavoriteWord.scss';
 
 const FavoriteWord = () => {
@@ -8,7 +9,7 @@ const FavoriteWord = () => {
   const navigate = useNavigate();
 
   const goToDislikeScent = word => {
-    navigate(`/Survey/DislikeScent/${decodeUri}&${word}`);
+    navigate(`${surveyNavigateUrl.FavoriteWord}${decodeUri}&${word}`);
   };
 
   return (
@@ -18,22 +19,45 @@ const FavoriteWord = () => {
           좋아하는 분위기의 단어를 골라주세요
         </div>
         <div className="imgContainer">
-          <button onClick={() => goToDislikeScent('Fresh')} className="text">
-            상큼한
-          </button>
-          <button onClick={() => goToDislikeScent('Clean')} className="text">
-            산뜻한
-          </button>
-          <button onClick={() => goToDislikeScent('Pure')} className="text">
-            투명한
-          </button>
-          <button onClick={() => goToDislikeScent('Cute')} className="text">
-            귀여운
-          </button>
+          {FAVORITEWORD_DATA.map(word => {
+            return (
+              <button
+                key={word.id}
+                onClick={() => goToDislikeScent(`${word.name}`)}
+                name={word.text}
+                className="text"
+              >
+                {word.text}
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
   );
 };
+
+const FAVORITEWORD_DATA = [
+  {
+    id: 1,
+    name: 'Fresh',
+    text: '상큼한',
+  },
+  {
+    id: 2,
+    name: 'Clean',
+    text: '산뜻한',
+  },
+  {
+    id: 3,
+    name: 'Pure',
+    text: '투명한',
+  },
+  {
+    id: 4,
+    name: 'Cute',
+    text: '귀여운',
+  },
+];
 
 export default FavoriteWord;

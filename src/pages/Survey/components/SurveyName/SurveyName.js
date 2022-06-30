@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import surveyNavigateUrl from '../../surveyConfig';
 import './SurveyName.scss';
 
 const SurveyName = () => {
@@ -14,11 +15,11 @@ const SurveyName = () => {
 
   const updateUserName = () => {
     const queryString = `?name=${userName}`;
-    navigate(`/Survey/FavoriteScent/${queryString}`);
+    navigate(`${surveyNavigateUrl.SurveyName}${queryString}`);
   };
 
   const goToPreview = () => {
-    navigate('/Survey');
+    navigate(surveyNavigateUrl.Survey);
   };
 
   return (
