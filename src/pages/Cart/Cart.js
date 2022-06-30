@@ -9,12 +9,36 @@ const Cart = () => {
     return (accumulator += obj.checked ? obj.quantity * obj.price : 0);
   }, 0);
   let deliveryFee = totalPrice >= 30000 ? 0 : 2500;
+  console.log('cartList:', cartList);
 
   useEffect(() => {
-    fetch('http://10.58.1.167:8000/carts', { method: 'GET' })
+    fetch('http://10.58.3.248:8000/carts', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3fQ.gOF0lDXoeNVbabmlcEYtmy4pbRL30cg28vUUXG1s5g4',
+      },
+    })
       .then(res => res.json())
       .then(res => setCartList(res.results));
   }, []);
+  console.log(cartList);
+
+  const deleteList = id => {
+    fetch(`http://10.58.3.248:8000/carts?cart_id=${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3fQ.gOF0lDXoeNVbabmlcEYtmy4pbRL30cg28vUUXG1s5g4',
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        setCartList(res.results);
+      });
+  };
 
   const isChecked = ({ target: { checked } }) => {
     setAllCheckedBox(checked);
@@ -59,14 +83,6 @@ const Cart = () => {
         if (listItem.id === id) listItem.quantity -= 1;
         if (listItem.quantity < 0) listItem.quantity = 0;
         return listItem;
-      });
-      return result;
-    });
-  };
-  const deleteList = id => {
-    setCartList(oldList => {
-      const result = cartList.filter(listItem => {
-        return listItem.id !== id;
       });
       return result;
     });
