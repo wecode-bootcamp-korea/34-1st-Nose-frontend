@@ -3,21 +3,33 @@
 
   .categoryWrapper {
     display: flex;
-    width: 60%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
 
     .categories {
       display: flex;
 
       .singleCategory {
-        padding: 20px;
+        padding: 0 60px 20px 60px;
+        font-family: sans-serif;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
+  .bar {
+    border-bottom: 1px solid silver;
+  }
   .perfumeWrapper {
-    .PerfumeList {
+    .perfumeList {
       display: flex;
-      max-width: 1200px;
+      justify-content: center;
       flex-wrap: wrap;
+      width: 100%;
     }
   }
 }

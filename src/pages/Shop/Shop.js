@@ -1,62 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PerfumeList from './components/PerfumeList';
-import { useParams, useNavigate } from 'react-router-dom';
 import './Shop.scss';
 
 const Shop = () => {
   const [perfumes, setPerfumes] = useState([]);
-  const [category, setCategory] = useState([]);
-  const params = useParams();
-
-  // KEEP: 백엔드와 통신 시, 필요
-  // useEffect(() => {
-  //   fetch('http://10.58.7.184:8000/products')
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       setPerfumes(result.perfume_list);
-  //     });
-  // }, []);
+  const [category, setCategory] = useState('All');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`./data/Itemlist.json`)
+    fetch('http://10.58.3.248:8000/products')
       .then(response => response.json())
       .then(result => {
-        setPerfumes(result);
+        setPerfumes(result.perfume_list);
       });
   }, []);
 
-  const navigate = useNavigate();
-
   const fetchData = name => {
-    console.log(name);
-    fetch(`http://10.58.7.184:8000/products?fragrance=${name}`)
+    fetch(`http://10.58.3.248:8000/products?fragrance=${name}`)
       .then(response => response.json())
       .then(result => {
         setCategory(result);
       });
   };
-  // KEEP: 백엔드와 통신 시, 필요
-  // const fetchData = () => {
-  //   fetch(`./data/Itemlist.json`)
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       setCategory(result);
-  //     });
-  // };
 
-  fetch(`./data/Itemlist.json`)
-    .then(response => response.json())
-    .then(result => {
-      setCategory(result);
-    });
+  const filterPerfume = perfumes.filter(perfume => {
+    return perfume.category.includes(category);
+  });
 
-  const filterCategory = name => {
-    const filter = category.filter(el => {
-      return el.category === name;
-    });
-
-    setPerfumes(filter);
-  };
   const goToDetailPage = id => {
     navigate(`/Detail/${id}`);
   };
@@ -71,7 +42,7 @@ const Shop = () => {
                 className="singleCategory"
                 key={category.id}
                 id={category.id}
-                onClick={() => filterCategory(category.name)}
+                onClick={e => setCategory(e.target.innerHTML)}
               >
                 {category.name}
               </li>
@@ -80,8 +51,10 @@ const Shop = () => {
         </ul>
       </div>
 
+      <div className="bar" />
+
       <div className="perfumeWrapper">
-        <PerfumeList perfumes={perfumes} goToDetailPage={goToDetailPage} />
+        <PerfumeList perfumes={filterPerfume} goToDetailPage={goToDetailPage} />
       </div>
     </div>
   );

@@ -5,7 +5,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2017/01/24/10/58/sand-2005066_960_720.jpg",
     "tags": ["#차분한", "#깔끔한", "#겨울숲"],
-    "category": "시트러스"
+    "category": ["시트러스", "All"]
   },
   {
     "product_id": 2,
@@ -13,7 +13,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2016/11/24/22/11/water-lily-1857350_1280.jpg",
     "tags": ["#부드러운", "#사랑스러운", "#비누향"],
-    "category": "시트러스"
+    "category": ["시트러스", "All"]
   },
   {
     "product_id": 3,
@@ -21,7 +21,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2019/01/10/19/36/valentine-3925929_1280.jpg",
     "tags": ["#달달한", "#프루티", "#따뜻한"],
-    "category": "시트러스"
+    "category": ["시트러스", "All"]
   },
   {
     "product_id": 4,
@@ -29,7 +29,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2019/05/30/15/25/lilies-of-the-valley-4240031_960_720.jpg",
     "tags": ["#청량한", "#투명한", "#풀숲"],
-    "category": "시트러스"
+    "category": ["시트러스", "All"]
   },
   {
     "product_id": 5,
@@ -37,7 +37,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2019/09/05/17/38/pine-cones-4454654_960_720.jpg",
     "tags": ["#깔끔한", "#장미", "#가벼운"],
-    "category": "플로럴"
+    "category": ["플로럴", "All"]
   },
   {
     "product_id": 6,
@@ -45,7 +45,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2016/11/29/06/20/red-1867767_960_720.jpg",
     "tags": ["#시원한", "#샤프한", "#물"],
-    "category": "플로럴"
+    "category": ["플로럴", "All"]
   },
   {
     "product_id": 7,
@@ -53,7 +53,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2014/12/24/05/02/drop-of-water-578897_960_720.jpg",
     "tags": ["#달콤한", "#귀여운", "#과일"],
-    "category": "플로럴"
+    "category": ["플로럴", "All"]
   },
   {
     "product_id": 8,
@@ -61,7 +61,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2016/11/02/16/49/grapefruits-1792233_960_720.jpg",
     "tags": ["#청량한", "#내추럴", "#프리지아"],
-    "category": "플로럴"
+    "category": ["플로럴", "All"]
   },
   {
     "product_id": 9,
@@ -69,7 +69,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2016/07/23/00/12/sunflower-1536088_960_720.jpg",
     "tags": ["#달달한", "#바닐라", "#어른이"],
-    "category": "우디"
+    "category": ["우디", "All"]
   },
   {
     "product_id": 10,
@@ -77,7 +77,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2017/11/29/18/54/leaf-2986837_960_720.jpg",
     "tags": ["#깔끔한", "#포근한", "#꽃잎"],
-    "category": "우디"
+    "category": ["우디", "All"]
   },
   {
     "product_id": 11,
@@ -85,7 +85,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2018/05/16/09/30/cotton-candy-3405286_960_720.jpg",
     "tags": ["#장미", "#달콤한", "#청순한"],
-    "category": "우디"
+    "category": ["우디", "All"]
   },
   {
     "product_id": 12,
@@ -93,7 +93,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2017/11/18/01/16/soaps-2958985_960_720.jpg",
     "tags": ["#시원한", "#오렌지", "#새콤한"],
-    "category": "우디"
+    "category": ["우디", "All"]
   },
   {
     "product_id": 13,
@@ -101,7 +101,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2018/03/02/19/46/rose-petals-3194062_960_720.jpg",
     "tags": ["#투명한", "#초여름", "#푸르른"],
-    "category": "머스크"
+    "category": ["머스크", "All"]
   },
   {
     "product_id": 14,
@@ -109,7 +109,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2016/03/16/16/28/tulips-1261142_960_720.jpg",
     "tags": ["#차분한", "#지적인", "#나무껍질"],
-    "category": "머스크"
+    "category": ["머스크", "All"]
   },
   {
     "product_id": 15,
@@ -117,7 +117,7 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2016/10/13/11/44/chocolates-1737503_960_720.jpg",
     "tags": ["#시원한", "#물", "#열정적인"],
-    "category": "머스크"
+    "category": ["머스크", "All"]
   },
   {
     "product_id": 16,
@@ -125,6 +125,6 @@
     "price": "4000.00",
     "thumbnail_img": "https://cdn.pixabay.com/photo/2017/01/20/15/12/oranges-1995079_960_720.jpg",
     "tags": ["#데일리", "#순수한", "#풀꽃"],
-    "category": "머스크"
+    "category": ["머스크", "All"]
   }
 ]
