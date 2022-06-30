@@ -8,8 +8,8 @@ import Detail from './pages/Detail/Detail';
 import Shop from './pages/Shop/Shop';
 import Survey from './pages/Survey/Survey';
 import Qna from './pages/Qna/Qna';
-import Nav from './component/Nav/Nav';
-import Footer from './component/Footer/Footer';
+import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
 
 function Router() {
   return (
@@ -22,7 +22,7 @@ function Router() {
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Detail/:id" element={<Detail />} />
         <Route path="/Shop" element={<Shop />} />
-        <Route path="/Survey" element={<Survey />} />
+        <Route path="/Survey/*" element={<Survey />} />
         <Route path="/Qna" element={<Qna />} />
       </Routes>
       <Footer />

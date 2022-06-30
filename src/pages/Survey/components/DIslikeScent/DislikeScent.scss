@@ -1,0 +1,106 @@
+.dislikeScent {
+  .dislikeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 600px;
+
+    .dislikeTitle {
+      font-size: 20px;
+    }
+    .dislikeBox {
+      width: 550px;
+      height: 600px;
+      display: flex;
+      position: relative;
+      text-align: center;
+      margin-top: 50px;
+
+      .waterContainer {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .dislikeImage {
+          width: 200px;
+          height: 200px;
+          cursor: pointer;
+        }
+
+        .imgSubtitle {
+          font-size: 18px;
+        }
+
+        .imgTitle {
+          font-size: 20px;
+        }
+      }
+      .fruitContainer {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        top: 0;
+        right: 0;
+
+        .dislikeImage {
+          width: 200px;
+          height: 200px;
+          cursor: pointer;
+        }
+
+        .imgSubtitle {
+          font-size: 18px;
+        }
+
+        .imgTitle {
+          font-size: 20px;
+        }
+      }
+      .cinnamonContainer {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        bottom: 0;
+        left: 0;
+        .dislikeImage {
+          width: 200px;
+          height: 200px;
+          cursor: pointer;
+        }
+
+        .imgSubtitle {
+          font-size: 18px;
+        }
+
+        .imgTitle {
+          font-size: 20px;
+        }
+      }
+      .vanillaContainer {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        right: 0;
+        bottom: 0;
+
+        .dislikeImage {
+          width: 200px;
+          height: 200px;
+          cursor: pointer;
+        }
+
+        .imgSubtitle {
+          font-size: 18px;
+        }
+
+        .imgTitle {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,183 @@
+@mixin btn {
+  z-index: 100;
+  width: 55px;
+  height: 55px;
+  opacity: 0.7;
+  background-size: 25px;
+}
+div {
+  display: block;
+}
+
+.detailContainer {
+  background-color: #ffff;
+  padding: 86px 0px 130px;
+  margin: 0px;
+  .topDiscoveryPage {
+    padding: 0px 32px;
+    width: 100%;
+  }
+  .contentBox {
+    background-color: #ffff;
+    .itemPage {
+      background-color: #ffff;
+      display: flex;
+      margin-bottom: 138px;
+      justify-content: center;
+      .sliderArea {
+        position: relative;
+        width: 400px;
+        height: 700px;
+        overflow-x: hidden;
+
+        .sliderBox {
+          position: relative;
+
+          .sliderTrack {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            display: flex;
+
+            overflow: hidden;
+            transform: translateX(0);
+
+            transition-duration: 1s;
+            .imgList {
+              list-style: none;
+              .img {
+                width: 400px;
+              }
+            }
+          }
+        }
+        .spanPrev {
+          position: absolute;
+          left: 0%;
+          top: 45%;
+          background: url('../../assets/images/detailPage/leftnext.png')
+            no-repeat center;
+          @include btn;
+        }
+
+        .spanNext {
+          position: absolute;
+          right: 0;
+          top: 45%;
+          background: url('../../assets/images/detailPage/rightnext.png')
+            no-repeat center;
+          @include btn;
+        }
+      }
+      .itemInfo {
+        margin: 0px 0px 0px 190px;
+        width: 500px;
+        font-size: 20px;
+        font-weight: bold;
+        .itemName {
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 1.5em;
+          margin-top: -6px;
+        }
+        .itemPrice {
+          margin-top: 24px;
+          font-weight: bold;
+          padding-top: 3px;
+          padding-bottom: 30px;
+        }
+        .itemSubNameBox {
+          border-top: 2px solid #696969;
+          border-bottom: 2px solid #696969;
+          padding: 38px 12px;
+          background-color: #ffff;
+          font-weight: lighter;
+          display: flex;
+          justify-content: space-between;
+          .itemSubName {
+            .amountBigBox {
+              display: flex;
+
+              .amountButtonBox {
+                border: 1px solid black;
+                display: flex;
+                .decreaseButton {
+                  font-size: 10px;
+                }
+                .itemAmount {
+                  border: none;
+                  font-size: 17px;
+                  padding: 20px;
+                }
+                .increaseButton {
+                  font-size: 10px;
+                }
+              }
+              .itemSubPrice {
+                width: 85px;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        .totalPriceBox {
+          padding: 24px 0px;
+          border-bottom: 1px dotted black;
+          .totalPrice {
+            font-size: 230x;
+            display: flex;
+          }
+          .realPrice {
+            font-size: 18px;
+            display: flex;
+            justify-content: flex-end;
+          }
+          margin-bottom: 40px;
+        }
+        .cartButtonBox {
+          text-align: center;
+          color: black;
+          font-size: 20px;
+          font-weight: bold;
+          border: 3px solid gray;
+          margin-bottom: 10px;
+          padding: 10px;
+        }
+        .myFavCart {
+          text-align: center;
+          color: white;
+          font-size: 15px;
+          border: 3px solid gray;
+          background-color: black;
+          margin-bottom: 10px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+  .itemDescriptionReviewBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .detailInfo {
+      padding: 40px;
+      .titleDescription {
+        text-align: center;
+        margin-bottom: 10px;
+        .titleSpan {
+          font-size: 25px;
+          border-bottom: 1px solid black;
+        }
+      }
+      .detailImageContainer {
+        width: 100%;
+        text-align: center;
+
+        .detailImage {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
