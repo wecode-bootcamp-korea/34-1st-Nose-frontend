@@ -1,0 +1,34 @@
+{
+  "id": 2,
+  "name": "wind 01. 투명한 바람",
+  "price": 20000,
+  "thumbnail_img": [
+    {
+      "id": 1,
+      "url": "//paffem.me/web/product/tiny/202012/c6dea5a4cf8b362090acbdd2af2873fe.jpg"
+    },
+    {
+      "id": 2,
+      "url": "https://paffem.me/web/product/extra/small/202101/8d15a29a829999a4990e1dcd51cc4d67.jpg"
+    },
+    {
+      "id": 3,
+      "url": "https://paffem.me/web/product/extra/small/202101/38727430ed3e26cf5e157622e1cb5e59.jpg"
+    }
+  ],
+  "quantity": 1,
+  "tags": [
+    {
+      "id": 1,
+      "tag": "#차분한"
+    },
+    {
+      "id": 2,
+      "tag": "#깔끔한"
+    },
+    {
+      "id": 3,
+      "tag": "겨울숲"
+    }
+  ]
+}
