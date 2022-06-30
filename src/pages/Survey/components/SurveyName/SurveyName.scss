@@ -1,0 +1,39 @@
+.surveyName {
+  .surveyNameTextContainer {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .surveyMainText {
+      font-size: 19px;
+      width: 300px;
+    }
+
+    .nameInput {
+      width: 300px;
+      height: 50px;
+      margin: 70px 0;
+    }
+    .buttonContainer {
+      .prevButton {
+        height: 50px;
+        width: 200px;
+        margin-right: 10px;
+        background-color: rgb(188, 188, 188);
+        color: white;
+        cursor: pointer;
+      }
+      .nextButton {
+        height: 50px;
+        width: 200px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
