@@ -1,44 +1,5 @@
 .main {
-  .changeSignature {
-    position: relative;
-    width: 100%;
-    height: 900px;
-    background-image: url('../../assets/images/main/change_signature.jpg');
-    background-size: cover;
-
-    .textContent {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transform: translate(-50%, -50%);
-
-      .prefixTitle {
-        font-size: 30px;
-      }
-
-      .suffixTitle {
-        margin: 20px;
-        font-size: 50px;
-      }
-
-      .pageChangeButton {
-        margin-top: 100px;
-        width: 300px;
-        height: 60px;
-        font-size: 20px;
-        background-color: transparent;
-        border-color: white;
-        color: white;
-
-        &:hover {
-          background-color: black;
-        }
-      }
-    }
-  }
+  width: 100%;
 
   .perfumeTeller {
     position: relative;
@@ -49,12 +10,12 @@
     background-size: cover;
 
     .textContent {
-      position: absolute;
-      top: 50%;
-      left: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
 
       .prefixTitle {
