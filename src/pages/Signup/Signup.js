@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API } from '../../config';
 import './Signup.scss';
 
 const Signup = () => {
@@ -51,7 +52,7 @@ const Signup = () => {
       : 'redMessageActive';
 
   const postUserData = () => {
-    fetch('http://10.58.3.43:8000/users/signup', {
+    fetch(API.CARTS, {
       method: 'POST',
       body: JSON.stringify({
         name,

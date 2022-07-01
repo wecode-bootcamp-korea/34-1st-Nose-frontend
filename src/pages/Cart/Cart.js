@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import CartList from './component/CartList';
+import { API } from '../../config';
 import './Cart.scss';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
   const [allcheckedBox, setAllCheckedBox] = useState(false);
-  const totalPrice = cartList.reduce((accumulator, obj) => {
+
+  const totalPrice = cartList?.reduce((accumulator, obj) => {
     return (accumulator += obj.checked ? obj.quantity * obj.price : 0);
   }, 0);
   let deliveryFee = totalPrice >= 30000 ? 0 : 2500;
-  console.log('cartList:', cartList);
 
   useEffect(() => {
-    fetch('http://10.58.3.248:8000/carts', {
+    fetch('http://10.58.6.171:8000/carts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3fQ.gOF0lDXoeNVbabmlcEYtmy4pbRL30cg28vUUXG1s5g4',
+        Authorization: localStorage.getItem('access_token'),
       },
     })
       .then(res => res.json())
@@ -26,7 +26,7 @@ const Cart = () => {
   console.log(cartList);
 
   const deleteList = id => {
-    fetch(`http://10.58.3.248:8000/carts?cart_id=${id}`, {
+    fetch(`http://10.58.6.171:8000/carts?cart_id=${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -35,9 +35,7 @@ const Cart = () => {
       },
     })
       .then(res => res.json())
-      .then(res => {
-        setCartList(res.results);
-      });
+      .then(res => setCartList(res.results));
   };
 
   const isChecked = ({ target: { checked } }) => {
@@ -143,7 +141,7 @@ const Cart = () => {
           </div>
           <div className="priceBox">
             <div className="cartPriceColumn">
-              {totalPrice.toLocaleString()}원
+              {totalPrice?.toLocaleString()}원
             </div>
             <div className="cartPriceColumn">+</div>
             <div className="cartPriceColumn">0원</div>
@@ -153,7 +151,7 @@ const Cart = () => {
             </div>
             <div className="cartPriceColumn">=</div>
             <div className="cartPriceColumn">
-              {(totalPrice + deliveryFee).toLocaleString()}원
+              {(totalPrice + deliveryFee)?.toLocaleString()}원
             </div>
           </div>
           <div className="orderBox">주문하기</div>

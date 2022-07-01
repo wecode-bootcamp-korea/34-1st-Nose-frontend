@@ -1,25 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { API } from '../../config';
 import './Detail.scss';
 const Detail = () => {
   const navigate = useNavigate();
 
+  const params = useParams();
+
   const [itemInfo, setItemInfo] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
-  const slides = itemInfo.thumbnail_img;
 
+  const slides = itemInfo.main_img_url;
   //TODO 'API'/products/ ${params.id}
-  useEffect(() => {
-    fetch('data/detailItem.json', { method: 'GET' })
-      .then(res => res.json())
-      .then(result => setItemInfo(result));
-  }, []);
 
+  useEffect(() => {
+    fetch(`${API.PRODUCTS}/${params.id}`, { method: 'GET' })
+      .then(res => res.json())
+      .then(res => setItemInfo(res.perfume_item));
+  }, []);
   const postCart = () => {
-    fetch('http://10.58.1.167:8000/carts', {
+    console.log(itemInfo);
+    fetch(API.CARTS, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('access_token'),
+        // localStorage.getItem('access_token'),
+      },
       body: JSON.stringify({
-        product_id: itemInfo.id,
+        product_id: itemInfo.product_id,
         quantity: itemInfo.quantity,
       }),
     })
@@ -29,6 +38,8 @@ const Detail = () => {
         else alert(result.message);
       });
   };
+
+  console.log(localStorage.getItem('access_token'));
 
   const increaseButton = () => {
     setItemInfo(value => {
@@ -78,11 +89,7 @@ const Detail = () => {
                   slides.map(image => {
                     return (
                       <li key={image.id} className="imgList">
-                        <img
-                          src={image.url}
-                          alt="슬라이드 사진"
-                          className="img"
-                        />
+                        <img src={image} alt="슬라이드 사진" className="img" />
                       </li>
                     );
                   })}

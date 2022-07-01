@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PerfumeList from './components/PerfumeList';
+import { API } from '../../config';
 import './Shop.scss';
 
 const Shop = () => {
@@ -9,7 +10,7 @@ const Shop = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://10.58.3.248:8000/products')
+    fetch(API.PRODUCTS)
       .then(response => response.json())
       .then(result => {
         setPerfumes(result.perfume_list);
@@ -17,7 +18,7 @@ const Shop = () => {
   }, []);
 
   const fetchData = name => {
-    fetch(`http://10.58.3.248:8000/products?fragrance=${name}`)
+    fetch(`${API.PRODUCTS}?fragrance=${name}`)
       .then(response => response.json())
       .then(result => {
         setCategory(result);
