@@ -15,6 +15,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Nav />
+      <div style={{ marginTop: 180 }} />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/Cart" element={<Cart />} />

@@ -45,7 +45,7 @@ const Nav = () => {
       </div>
       <div className="paffem">
         <Link to="/" className={`linkText${changeLinkColor}`}>
-          PAFFEM
+          NOSÈ
         </Link>
       </div>
       <div className="navUserIcon">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { API } from '../../config';
 import './Login.scss';
 
 const Login = () => {
@@ -16,7 +17,7 @@ const Login = () => {
     if (userInfo.userId.length === 0 || userInfo.userPw.length === 0) {
       alert('아이디 또는 비밀번호를 입력해주세요');
     } else {
-      fetch('http://10.58.4.98:8000/users/signin', {
+      fetch(API.LOGIN, {
         method: 'POST',
         body: JSON.stringify({
           account: userInfo.userId,
