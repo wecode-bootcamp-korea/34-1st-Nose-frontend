@@ -1,5 +1,3 @@
-import Signup from './pages/Signup/Signup';
-
 const IP = 'http://10.58.6.171:8000';
 
 export const API = {

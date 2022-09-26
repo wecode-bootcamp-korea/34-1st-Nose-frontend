@@ -52,7 +52,7 @@ const Signup = () => {
       : 'redMessageActive';
 
   const postUserData = () => {
-    fetch(API.CARTS, {
+    fetch(API.SIGNUP, {
       method: 'POST',
       body: JSON.stringify({
         name,
@@ -170,7 +170,7 @@ const Signup = () => {
             type="button"
             className="button"
             onClick={postUserData}
-            disabled={isAllTrue ? false : true}
+            disabled={!isAllTrue}
           >
             동의하고 회원가입
           </button>

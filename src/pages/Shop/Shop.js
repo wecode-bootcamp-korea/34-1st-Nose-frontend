@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import PerfumeList from './components/PerfumeList';
 import { API } from '../../config';
@@ -10,24 +11,28 @@ const Shop = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(API.PRODUCTS)
-      .then(response => response.json())
-      .then(result => {
-        setPerfumes(result.perfume_list);
-      });
+    // fetch(API.PRODUCTS)
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     setPerfumes(result.perfume_list);
+    //   });
+    axios
+      .get('../../../data/Itemlist.json')
+      .then(response => setPerfumes(response.data));
   }, []);
 
-  const fetchData = name => {
-    fetch(`${API.PRODUCTS}?fragrance=${name}`)
-      .then(response => response.json())
-      .then(result => {
-        setCategory(result);
-      });
-  };
+  // const fetchData = name => {
+  //   fetch(`${API.PRODUCTS}?fragrance=${name}`)
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       setCategory(result);
+  //     });
+  // };
 
   const filterPerfume = perfumes.filter(perfume => {
     return perfume.category.includes(category);
   });
+  // console.log(filterPerfume);
 
   const goToDetailPage = id => {
     navigate(`/Detail/${id}`);
@@ -43,7 +48,7 @@ const Shop = () => {
                 className="singleCategory"
                 key={category.id}
                 id={category.id}
-                onClick={e => setCategory(e.target.innerHTML)}
+                onClick={() => setCategory(category.name)}
               >
                 {category.name}
               </li>
@@ -52,7 +57,7 @@ const Shop = () => {
         </ul>
       </div>
 
-      <div className="bar" />
+      <div className="divider" />
 
       <div className="perfumeWrapper">
         <PerfumeList perfumes={filterPerfume} goToDetailPage={goToDetailPage} />
